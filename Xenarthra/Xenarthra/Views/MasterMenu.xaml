@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xenarthra.Views.MasterMenu"
+             Title="Menu">
+    <StackLayout BackgroundColor="Transparent" Spacing="0">
+        <StackLayout BackgroundColor="#0D840D" HeightRequest="200">
+
+        </StackLayout>
+        
+        <TableView Intent="Menu" Margin="0,0" RowHeight="64">
+            <TableRoot>
+                <TableSection>
+
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="map.png" WidthRequest="64" HeightRequest="64"></Image>
+                            <Label Text="Mapa" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
+                        </StackLayout>
+                    </ViewCell>
+
+                    <ViewCell x:Name="vcMapa" Tapped="vcMapa_Tapped">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="camera.png" WidthRequest="64" HeightRequest="64"></Image>
+                            <Label Text="Enviar Imagem" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
+                        </StackLayout>
+                    </ViewCell>                    
+
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="catalogo.png" WidthRequest="64" HeightRequest="64"></Image>
+                            <Label Text="Catalogo" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
+                        </StackLayout>
+                    </ViewCell>
+
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="camera.png" WidthRequest="64" HeightRequest="64"></Image>
+                            <Label Text="Mapa" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
+                        </StackLayout>
+                    </ViewCell>
+
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+    </StackLayout>
+</ContentPage>

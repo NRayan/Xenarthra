@@ -13,7 +13,7 @@ namespace Xenarthra
 		{
 			InitializeComponent();
 
-			MainPage = new Xenarthra.MainPage();
+			MainPage = new Xenarthra.Login();
 		}
 
 		protected override void OnStart ()
