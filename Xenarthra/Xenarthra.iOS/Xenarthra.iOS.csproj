@@ -146,13 +146,16 @@
     <BundleResource Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\map.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\catalogo.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\info.png" />
   </ItemGroup>
   <Import Project="..\Xenarthra\Xenarthra.projitems" Label="Shared" Condition="Exists('..\Xenarthra\Xenarthra.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

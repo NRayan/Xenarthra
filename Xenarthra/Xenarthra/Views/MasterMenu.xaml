@@ -7,36 +7,36 @@
         <StackLayout BackgroundColor="#0D840D" HeightRequest="200">
 
         </StackLayout>
-        
-        <TableView Intent="Menu" Margin="0,0" RowHeight="64">
+
+        <TableView Intent="Menu" Margin="0,0" RowHeight="60">
             <TableRoot>
                 <TableSection>
 
-                    <ViewCell>
+                    <ViewCell x:Name="vcMapa" Tapped="vcMapa_Tapped">
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="map.png" WidthRequest="64" HeightRequest="64"></Image>
+                            <Image Source="map.png"  WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
                             <Label Text="Mapa" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
                         </StackLayout>
                     </ViewCell>
 
-                    <ViewCell x:Name="vcMapa" Tapped="vcMapa_Tapped">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="camera.png" WidthRequest="64" HeightRequest="64"></Image>
-                            <Label Text="Enviar Imagem" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
-                        </StackLayout>
-                    </ViewCell>                    
-
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="catalogo.png" WidthRequest="64" HeightRequest="64"></Image>
+                            <Image Source="camera.png"  WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
+                            <Label Text="Enviar Imagem" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
+                        </StackLayout>
+                    </ViewCell>
+
+                    <ViewCell x:Name="vcCatalogo" Tapped="vcCatalogo_Tapped">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="catalogo.png"  WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
                             <Label Text="Catalogo" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
                         </StackLayout>
                     </ViewCell>
 
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="camera.png" WidthRequest="64" HeightRequest="64"></Image>
-                            <Label Text="Mapa" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
+                            <Image Source="info.png" WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
+                            <Label Text="Informação" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
                         </StackLayout>
                     </ViewCell>
 

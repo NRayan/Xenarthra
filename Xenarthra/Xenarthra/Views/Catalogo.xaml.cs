@@ -10,13 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Xenarthra.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MasterDetail : MasterDetailPage
+	public partial class Catalogo : ContentPage
 	{
-		public MasterDetail ()
+		public Catalogo ()
 		{
 			InitializeComponent ();
-            this.Master = new MasterMenu(this);
-            this.Detail = new NavigationPage(new Mapa());
 		}
 	}
 }

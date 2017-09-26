@@ -20,7 +20,9 @@ namespace Xenarthra.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-			LoadApplication (new Xenarthra.App ());
+
+            global::Xamarin.FormsMaps.Init(this, bundle);
+            LoadApplication (new Xenarthra.App ());
 		}
 	}
 }
