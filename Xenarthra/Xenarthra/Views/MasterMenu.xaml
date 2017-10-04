@@ -38,11 +38,10 @@
                             <Image Source="info.png" WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
                             <Label Text="Informação" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
                         </StackLayout>
-                    </ViewCell>
-
+                    </ViewCell>                    
                 </TableSection>
             </TableRoot>
         </TableView>
-
+        <Image Source="iconl.png" VerticalOptions="End" WidthRequest="134" HeightRequest="27" Margin="0,0,0,30"></Image>
     </StackLayout>
 </ContentPage>

@@ -4,4 +4,22 @@
              x:Class="Xenarthra.Views.Catalogo"
              BackgroundColor="#085808"
              Title="Catalogo">
+
+    <StackLayout Spacing="0">
+        <SearchBar x:Name="sbAnimais" SearchButtonPressed="sbAnimais_SearchButtonPressed" Placeholder="Pesquisar" HorizontalOptions="Fill" HeightRequest="64" BackgroundColor="#053A05" PlaceholderColor="White" CancelButtonColor="White" TextColor="White" />
+
+        <ListView x:Name="lvAnimais" ItemsSource="{Binding pxNomeAnimais,Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Label Text="{Binding ani_Nome}" FontSize="20" TextColor="White" VerticalTextAlignment="Center" Margin="20,0"></Label>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+    
 </ContentPage>

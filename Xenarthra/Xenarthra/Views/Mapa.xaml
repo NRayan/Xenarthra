@@ -5,11 +5,11 @@
              Title="Mapa" 
              BackgroundColor="AliceBlue"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
-
+    
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="teste1" Order="Primary"/>
-        <ToolbarItem Name="teste2" Order="Secondary" />
-        <ToolbarItem Name="teste3" Order="Secondary" />        
+        <ToolbarItem Name="Tatu" Order="Secondary"/>
+        <ToolbarItem Name="Bicho-Preguiça" Order="Secondary" />
+        <ToolbarItem Name="Tamanduá" Order="Secondary" />        
     </ContentPage.ToolbarItems>
 
     <ContentPage.ToolbarItems>

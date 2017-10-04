@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Xenarthra"
-             x:Class="Xenarthra.Login">
-
+             x:Class="Xenarthra.Login"
+             BackgroundImage="background.png"
+             BackgroundColor="Blue">
     <StackLayout VerticalOptions="Center" Margin="30,0">
-        <Image Source="iconx.png" HorizontalOptions="Center" WidthRequest="256" HeightRequest="256"></Image>
-        <Entry Placeholder="Usuário" TextColor="#C7C7C7"></Entry>
-        <Entry Placeholder="Senha" TextColor="#C7C7C7"></Entry>
-        <Button Text="Entrar" BorderRadius="10" BackgroundColor="#1F991B" TextColor="White" Clicked="Button_Clicked" Margin="0,10"></Button>
-        <Button Text="Registrar" BorderRadius="10" BackgroundColor="#007ACC" TextColor="White"></Button>
+        <Image Source="iconx.png" HorizontalOptions="Center" WidthRequest="256" HeightRequest="256"/>
+        <Entry Placeholder="Usuário"/>
+        <Entry Placeholder="Senha"/>
+        <Button x:Name="btnEntrar" Clicked="btnEntrar_Clicked" Text="Entrar" BorderRadius="10" BackgroundColor="#1F991B" TextColor="White"  Margin="0,10"/>
+        <Button x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" Text="Cadastrar" BorderRadius="10" BackgroundColor="#007ACC" TextColor="White"/>
     </StackLayout>
 
 </ContentPage>
