@@ -5,17 +5,14 @@
              Title="Mapa" 
              BackgroundColor="AliceBlue"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Tatu" Order="Secondary"/>
-        <ToolbarItem Name="Bicho-Preguiça" Order="Secondary" />
-        <ToolbarItem Name="Tamanduá" Order="Secondary" />        
-    </ContentPage.ToolbarItems>
 
-    <ContentPage.ToolbarItems>
-       
-    </ContentPage.ToolbarItems>
-    
+
+    <Grid>
     <maps:Map x:Name="Map"></maps:Map>
 
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Margin="15,0,0,0">
+            <Button WidthRequest="64" HeightRequest="64" BackgroundColor="Black" BorderWidth="2" BorderRadius="32" BorderColor="Black" Image="sloth.png">
+            </Button>
+        </StackLayout>
+    </Grid>
 </ContentPage>

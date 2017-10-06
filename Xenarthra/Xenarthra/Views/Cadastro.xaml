@@ -5,12 +5,16 @@
              BackgroundImage="background.png"
              BackgroundColor="Blue">
     
-    <StackLayout VerticalOptions="Center" Margin="30,0,30,10">
-        <Image Source="profile.png" WidthRequest="128" HeightRequest="128" Margin="0,0,0,50" />
+    <StackLayout VerticalOptions="Center" Margin="30,0,30,30">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Image Source="profile.png" WidthRequest="128" HeightRequest="128" Margin="24,0,5,20"/>
+            <Image Source="plus.png" WidthRequest="24" HeightRequest="24" Margin="3,0,0,20"/>
+        </StackLayout>
+        
         <Entry Placeholder="Nome Completo"/>       
         <Entry Placeholder="Email" Keyboard="Email"/>
         <Entry Placeholder="Nome de Usuário"/>
         <Entry Placeholder="Senha" IsPassword="True"/>
-        <Button Text="Cadastrar" TextColor="White" BorderRadius="10" BackgroundColor="#007ACC" Margin="10,10,10,0"/>
+        <Button Text="Cadastrar" TextColor="White" BorderRadius="10" BackgroundColor="#007ACC" Margin="10,20,10,0"/>
     </StackLayout>
 </ContentPage>

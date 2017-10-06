@@ -16,12 +16,10 @@ namespace Xenarthra.Views
         public MasterMenu ()
 		{
 			InitializeComponent ();
-            this.BackgroundColor = new Color(255, 255, 255, 0.5);
 		}
 
         public MasterMenu(MasterDetailPage objMDP)
         {
-            this.BackgroundColor = new Color(255, 255, 255, 0.8);
             mdpView = objMDP;
             InitializeComponent();
         }
