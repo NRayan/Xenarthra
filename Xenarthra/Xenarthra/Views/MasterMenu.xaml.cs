@@ -24,11 +24,6 @@ namespace Xenarthra.Views
             InitializeComponent();
         }
 
-        public void btnMapa()
-        {
-            DisplayAlert("teste", "teste", "ok");
-        }
-
         private void vcMapa_Tapped(object sender, EventArgs e)
         {
             mdpView.Detail = new NavigationPage(new Mapa());

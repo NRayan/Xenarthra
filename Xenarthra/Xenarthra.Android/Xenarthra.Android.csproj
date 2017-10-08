@@ -198,7 +198,7 @@
     <AndroidResource Include="Resources\Drawable\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\sloth.png" />
+    <AndroidResource Include="Resources\Drawable\swap.png" />
   </ItemGroup>
   <Import Project="..\Xenarthra\Xenarthra.projitems" Label="Shared" Condition="Exists('..\Xenarthra\Xenarthra.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -15,11 +15,16 @@ namespace Xenarthra.Views
         public Mapa ()
 		{            
             InitializeComponent ();
-
             Map.MoveToRegion(MapSpan.FromCenterAndRadius(
                 new Position(-6.283629, -79.169832), Distance.FromKilometers(5300))
                 );            
             
         }
-	}
+
+        private void btnFiltrar_Clicked(object sender, EventArgs e)
+        {
+           // AnimaisPicker.IsVisible = true;
+            AnimaisPicker.Focus();
+        }
+    }
 }

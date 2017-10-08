@@ -13,6 +13,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Animal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VMBaseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Cadastro.xaml.cs">
       <DependentUpon>Cadastro.xaml</DependentUpon>
       <SubType>Code</SubType>

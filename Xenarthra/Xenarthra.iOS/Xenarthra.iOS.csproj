@@ -170,7 +170,7 @@
     <BundleResource Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\sloth.png" />
+    <BundleResource Include="Resources\swap.png" />
   </ItemGroup>
   <Import Project="..\Xenarthra\Xenarthra.projitems" Label="Shared" Condition="Exists('..\Xenarthra\Xenarthra.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
