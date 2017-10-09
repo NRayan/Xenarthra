@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xenarthra.Views.Catalogo"
-             BackgroundColor="#085808"
-             Title="Catalogo">
+             xmlns:pages="clr-namespace:Xenarthra.Views;assembly=Xenarthra.Views"
+             Title="Catálogo">
 
-    <StackLayout Spacing="0">
-        <SearchBar x:Name="sbAnimais" SearchButtonPressed="sbAnimais_SearchButtonPressed" Placeholder="Pesquisar" HorizontalOptions="Fill" HeightRequest="64" BackgroundColor="#053A05" PlaceholderColor="White" CancelButtonColor="White" TextColor="White" />
-
-        <ListView x:Name="lvAnimais" ItemsSource="{Binding pxNomeAnimais,Mode=TwoWay}">
+    <ContentPage Title="Bichos-Preguiça">
+        <ListView x:Name="lvAnimais" ItemsSource="{Binding pxNomeAnimais,Mode=TwoWay}" BackgroundColor="#085808">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -19,7 +17,38 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-    </StackLayout>
+    </ContentPage>
     
-</ContentPage>
+    
+    <ContentPage Title="Tatus">
+        <ListView x:Name="lvAnimais2" ItemsSource="{Binding pxNomeAnimais,Mode=TwoWay}" BackgroundColor="#085808">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Label Text="{Binding ani_Nome}" FontSize="20" TextColor="White" VerticalTextAlignment="Center" Margin="20,0"></Label>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+    
+    
+    <ContentPage Title="Tamanduás">
+        <ListView x:Name="lvAnimais3" ItemsSource="{Binding pxNomeAnimais,Mode=TwoWay}" BackgroundColor="#085808">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Label Text="{Binding ani_Nome}" FontSize="20" TextColor="White" VerticalTextAlignment="Center" Margin="20,0"></Label>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+
+
+    
+</TabbedPage>

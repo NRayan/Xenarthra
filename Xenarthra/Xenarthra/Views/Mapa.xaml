@@ -10,20 +10,26 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="btnFiltrar" Icon="swap.png" Clicked="btnFiltrar_Clicked" />
     </ContentPage.ToolbarItems>
+    <StackLayout Spacing="0" BackgroundColor="#0D840D">
 
-    <Grid>     
 
-        <Picker x:Name="AnimaisPicker" HorizontalOptions="FillAndExpand" Title="Selecionar" IsVisible="False">
-            <Picker.Items>
-                <x:String>Bicho-Preguiça</x:String>
-                <x:String>Tatu</x:String>
-                <x:String>Tamandua</x:String>
-            </Picker.Items>
-        </Picker>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Image Source="sloth.png" HeightRequest="32" WidthRequest="32"/>
+                <Label Text="Bicho-Preguiça" Font="24" TextColor="White"/>
+            </StackLayout>
+
+
+            <Grid VerticalOptions="FillAndExpand">     
+            <Picker x:Name="AnimaisPicker" HorizontalOptions="FillAndExpand" Title="Selecionar" IsVisible="False">
+                <Picker.Items>
+                    <x:String>Bicho-Preguiça</x:String>
+                    <x:String>Tatu</x:String>
+                    <x:String>Tamandua</x:String>
+                </Picker.Items>
+            </Picker>        
+            <maps:Map x:Name="Map"></maps:Map>      
         
-        <maps:Map x:Name="Map"></maps:Map>
+        </Grid>
 
-        <Label Text="Bicho-Preguiça" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,15,0,0" Font="Bold,26"  TextColor="#0D840D"  />
-        
-    </Grid>
+    </StackLayout>
 </ContentPage>
