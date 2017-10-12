@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ButtonRenderer.cs" />
+    <Compile Include="CustomMapRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -202,6 +203,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\sloth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\anteater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\armadillo.png" />
   </ItemGroup>
   <Import Project="..\Xenarthra\Xenarthra.projitems" Label="Shared" Condition="Exists('..\Xenarthra\Xenarthra.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

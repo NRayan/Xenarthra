@@ -12,5 +12,4 @@
         <Button x:Name="btnEntrar" Clicked="btnEntrar_Clicked" Text="Entrar" BorderRadius="10" BackgroundColor="#1F991B" TextColor="White"  Margin="0,10"/>
         <Button x:Name="btnRegistrar" Clicked="btnRegistrar_Clicked" Text="Cadastrar" BorderRadius="10" BackgroundColor="#007ACC" TextColor="White"/>
     </StackLayout>
-
 </ContentPage>

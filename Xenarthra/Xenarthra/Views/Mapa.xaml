@@ -1,35 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xenarthra.Views.Mapa"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"    
+             xmlns:local="clr-namespace:Xenarthra.Views"
+             x:Class="Xenarthra.Views.Mapa"           
              Title="Mapa" 
              BackgroundColor="AliceBlue"
-             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"> 
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="btnFiltrar" Icon="swap.png" Clicked="btnFiltrar_Clicked" />
-    </ContentPage.ToolbarItems>
     <StackLayout Spacing="0" BackgroundColor="#0D840D">
-
-
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Image Source="sloth.png" HeightRequest="32" WidthRequest="32"/>
-                <Label Text="Bicho-Preguiça" Font="24" TextColor="White"/>
-            </StackLayout>
-
-
-            <Grid VerticalOptions="FillAndExpand">     
-            <Picker x:Name="AnimaisPicker" HorizontalOptions="FillAndExpand" Title="Selecionar" IsVisible="False">
-                <Picker.Items>
-                    <x:String>Bicho-Preguiça</x:String>
-                    <x:String>Tatu</x:String>
-                    <x:String>Tamandua</x:String>
-                </Picker.Items>
-            </Picker>        
-            <maps:Map x:Name="Map"></maps:Map>      
         
-        </Grid>
+        <local:CustomMap x:Name="MapadeArea" MapType="Street" /> 
+        <!--
+        <maps:Map x:Name="Map" IsVisible="False" />
+        -->
+        
+        <!--   Frames Simulando Botões     -->        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" BackgroundColor="Transparent">
+
+            <Frame x:Name="btnSloth" x:Uid="1"  BackgroundColor="Transparent" Margin="0,10,15,10" CornerRadius="15">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btnFrame_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Image Source="sloth.png" BackgroundColor="Transparent" HeightRequest="32" WidthRequest="32"/>
+            </Frame>
+
+            <Frame x:Name="btnArmadillo" x:Uid="2"  BackgroundColor="Transparent" Margin="0,10,0,10" CornerRadius="15" >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btnFrame_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Image Source="armadillo.png" BackgroundColor="Transparent" HeightRequest="32" WidthRequest="32"/>
+            </Frame>
+
+            <Frame x:Name="btnAnteater" x:Uid="3" BackgroundColor="Transparent" Margin="15,10,0,10" CornerRadius="15">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btnFrame_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Image Source="anteater.png" BackgroundColor="Transparent" HeightRequest="32" WidthRequest="32"/>
+            </Frame>
+        </StackLayout>
 
     </StackLayout>
 </ContentPage>

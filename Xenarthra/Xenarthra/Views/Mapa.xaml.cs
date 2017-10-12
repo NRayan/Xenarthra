@@ -6,25 +6,56 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
-
+using Xenarthra.ViewModels;
 namespace Xenarthra.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Mapa : ContentPage
-	{        
+	{
+        public MapaVM MapaViewModel { get; set; }
         public Mapa ()
 		{            
             InitializeComponent ();
-            Map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                new Position(-6.283629, -79.169832), Distance.FromKilometers(5300))
-                );            
-            
+            MapaViewModel = new MapaVM();
+            this.BindingContext = MapaViewModel;
+            testePinoArea();
+            MapadeArea.IsShowingUser = false;                        
         }
 
-        private void btnFiltrar_Clicked(object sender, EventArgs e)
+        private void btnFrame_Tapped(object sender, EventArgs e)
         {
-           // AnimaisPicker.IsVisible = true;
-            AnimaisPicker.Focus();
+            Frame btnFrame = sender as Frame;
+            btnAnteater.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
+            btnArmadillo.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
+            btnSloth.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
+            btnFrame.BackgroundColor = Color.FromRgb(80, 185, 72);            
+        }       
+
+        private void testePinoArea()
+        {
+            //Pino Basico
+            var pin = new Pin
+            {
+                Type = PinType.Place,
+                Position = new Position(-23.569269, -47.460850),
+                Label = "Fulano de tal",
+                Address = "Arvore de Parque"
+            };
+
+
+            //Pino em Area -- Adicionando pino de area
+            var position = new Position(-23.569269, -47.460850);
+            MapadeArea.Circle = new CustomCircle
+            {
+                Position = position,
+                Radius = 6000
+            };
+
+            //Adicionando pino Basico
+            MapadeArea.Pins.Add(pin);
+            MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(10.0)));
         }
+
+       
     }
 }

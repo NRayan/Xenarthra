@@ -14,6 +14,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Animal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MapaVM.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VMBaseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Cadastro.xaml.cs">
       <DependentUpon>Cadastro.xaml</DependentUpon>
@@ -23,6 +24,8 @@
       <DependentUpon>Catalogo.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CustomCircle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CustomMap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
