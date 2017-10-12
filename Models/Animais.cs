@@ -14,6 +14,6 @@ namespace Models
         public Byte[] ani_IMG { get; set; }
         public string  ani_DESCRICAO { get; set; }
         public string ani_FAMILIA { get; set; }
-        public int ani_IDENTIFICACAO { get; set; }
+        public int ani_IDENTIFICACAO { get; set;}
     }
 }
