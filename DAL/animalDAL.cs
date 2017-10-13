@@ -112,7 +112,6 @@ namespace DAL
                 if (dr.HasRows && dr.Read())
                 {
                     A = new Animais();
-                    A = new Animais();
                     A.ani_ID = Convert.ToInt32(dr["ani_ID"]);
                     A.ani_NOMECIENT = dr["ani_NOMECIENT"].ToString();
                     A.ani_NOME = dr["ani_NOME"].ToString();
