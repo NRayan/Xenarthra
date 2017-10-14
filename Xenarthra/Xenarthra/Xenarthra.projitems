@@ -16,6 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginVM.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MapaVM.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VMBaseModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Aparicao.xaml.cs">
+      <DependentUpon>Aparicao.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Cadastro.xaml.cs">
       <DependentUpon>Cadastro.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -24,8 +28,12 @@
       <DependentUpon>Catalogo.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\CustomCircle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\CustomMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Classes\CustomCircle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Classes\CustomMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\EnvioImagem.xaml.cs">
+      <DependentUpon>EnvioImagem.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -78,6 +86,21 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Catalogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Classes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\EnvioImagem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Aparicao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -26,7 +26,7 @@
                         </StackLayout>
                     </ViewCell>
 
-                    <ViewCell>
+                    <ViewCell x:Name="vcImagem" Tapped="vcImagem_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="camera.png"  WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
                             <Label Text="Enviar Imagem" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
@@ -50,5 +50,6 @@
             </TableRoot>
         </TableView>
         <Image Source="iconl.png" VerticalOptions="End" WidthRequest="134" HeightRequest="27" Margin="0,0,0,30"></Image>
+        
     </StackLayout>
 </ContentPage>

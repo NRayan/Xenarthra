@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xenarthra.Views.Aparicao"
+             Title="Enviar Imagem"
+             BackgroundColor="#085808">
+    
+    <StackLayout x:Name="stack1" VerticalOptions="Center">
+       <Label Text="Capturar Imagem" HorizontalOptions="Center" Margin="0,15,0,15" FontSize="22" TextColor="White"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+        <Button x:Name="btnImgFromGallery" Clicked="btnImgFromGallery_Clicked" Text="Galeria" BackgroundColor="Transparent" BorderWidth="1" BorderRadius="5" BorderColor="White" TextColor="White"/>
+            <Button x:Name="btnImgFromCamera" Clicked="btnImgFromCamera_Clicked" Text="Camera" BackgroundColor="Transparent" BorderWidth="1" BorderRadius="5" BorderColor="White" TextColor="White"/>
+            <Image x:Name="imgAparicao"/>
+        </StackLayout>
+        
+    </StackLayout>   
+
+ 
+</ContentPage>
