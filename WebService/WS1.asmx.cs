@@ -5,6 +5,12 @@ using System.Web;
 using System.Web.Services;
 using Models;
 using DAL;
+public struct Retorno
+{
+    public Animais A;
+    public Aparicoes APA;
+
+}
 
 namespace WebService
 {
@@ -22,10 +28,15 @@ namespace WebService
         [WebMethod]
         public void InserirAnimal (Animais A)
         {
+            
             animalDAL ADAL = new animalDAL();
+            aparicaoDAL APADAL = new aparicaoDAL();
             A = new Animais();
+            Aparicoes APA = new Aparicoes();
 
-            ADAL.InserirAnimal(A);  
+            ADAL.InserirAnimal(A);
+            APA.apa_ID_ANI = ADAL.BuscarCodUltimoAnimal();
+            APADAL.InserirAparicao(APA);
         }
         [WebMethod]
         public List<Animais> ConsultaAnimais()
@@ -35,15 +46,18 @@ namespace WebService
             return ADAL.ListarAnimais();
         }
         [WebMethod]
-        public Animais BuscarAnimalCodigo(int Codigo)
+
+        public Retorno BuscarAnimalCodigo(int Codigo)
         {
             animalDAL ADAL = new animalDAL();
-            Animais A = new Animais();
+            aparicaoDAL APADAL = new aparicaoDAL();
+            Retorno Ret = new Retorno();
 
-            A = ADAL.BuscarAnimalCodigo(Codigo);
+            Ret.A = ADAL.BuscarAnimalCodigo(Codigo);
+            Ret.APA = APADAL.BuscarAparicaoCodigoAnimal(Codigo);
 
 
-            return A;
+            return Ret;
         }
     }
 }

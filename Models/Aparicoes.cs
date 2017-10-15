@@ -12,7 +12,7 @@ namespace Models
         public int apa_ID_USU { get; set; }
         public int apa_ID_ANI { get; set; }
         public string apa_COMENTARIO { get; set; }
-        public bool apa_Validado { get; set; }
+        public bool apa_VALIDADO{ get; set; }
         public Decimal apa_LATITUDE { get; set; }
         public Decimal apa_LONGITUDE { get; set; }
     }

@@ -190,6 +190,35 @@ namespace DAL
                     conn.Close();
             }
         }
+        public int BuscarCodUltimoAnimal()
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            int codigo = 0;
+            try
+            {
+                conn.Open();
+
+                string sql = " select top 1 ani_ID from ANIMAL order by ani_ID desc";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows && dr.Read())
+                {
+                    codigo = Convert.ToInt32(dr["ani_ID"]);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+
+            return codigo;
+        }
     }
 }
 
