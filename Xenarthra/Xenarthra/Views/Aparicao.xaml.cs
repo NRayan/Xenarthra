@@ -60,8 +60,7 @@ namespace Xenarthra.Views
                     PhotoSize = PhotoSize.Medium,
                     AllowCropping = true,
                     SaveToAlbum = true,
-                    Name = "capXen.jpg",
-                    DefaultCamera = CameraDevice.Front,
+                    Name = "capXen.jpg"
                 });
 
                 if (file == null)
@@ -71,6 +70,7 @@ namespace Xenarthra.Views
 
                 img = ReadFully(file.GetStream());
                 imgAparicao.Source = ImageSource.FromStream(() => file.GetStream());
+                imgAparicao.IsVisible = true;
             }
 
             catch (Exception ex)
@@ -93,7 +93,7 @@ namespace Xenarthra.Views
 
                 var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
                 {
-                    PhotoSize = PhotoSize.Small,
+                    PhotoSize = PhotoSize.Medium,
                 });
 
                 if (file == null)
@@ -103,6 +103,7 @@ namespace Xenarthra.Views
 
                 img = ReadFully(file.GetStream());
                 imgAparicao.Source = ImageSource.FromStream(() => file.GetStream());
+                imgAparicao.IsVisible = true;
             }
 
             catch (Exception ex)

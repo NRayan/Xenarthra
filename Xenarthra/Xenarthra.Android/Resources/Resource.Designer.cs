@@ -2487,7 +2487,7 @@ namespace Xenarthra.Droid
 			public const int design_snackbar_background = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int edit = 2130837642;
+			public const int emptyimg = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
 			public const int ic_audiotrack_dark = 2130837643;
