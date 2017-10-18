@@ -50,5 +50,49 @@ namespace Xenarthra.Models
 
             return lista;
         }
+
+        public List<Animal> ListarNomeBichosPreguica()
+        {
+            List<Animal> lista = new List<Animal>
+            {
+                new Animal{ani_ID=1,ani_Nome="Preguiça-de-hoffmann" },
+                new Animal{ani_ID=1,ani_Nome="Preguiça-de-coleira" },
+                new Animal{ani_ID=1,ani_Nome="Preguiça-real" },
+                new Animal{ani_ID=1,ani_Nome="Preguiça-de-bentinho" },
+                new Animal{ani_ID=1,ani_Nome="Preguiça-comum" }
+            };
+
+
+            return lista;
+        }
+
+        public List<Animal> ListarNomeTatus()
+        {
+            List<Animal> lista = new List<Animal>
+            {
+                new Animal{ani_ID=1,ani_Nome="Tatu-galinha-pequeno" },
+                new Animal{ani_ID=1,ani_Nome="Tatu-mulita" },
+                new Animal{ani_ID=1,ani_Nome="Tatu-de-quinze-quilos" },
+                new Animal{ani_ID=1,ani_Nome="Tatu-galinha" },
+                new Animal{ani_ID=1,ani_Nome="Tatu-peludo" },
+                new Animal{ani_ID=1,ani_Nome="Tatu-bola-da-caatinga" },
+                new Animal{ani_ID=1,ani_Nome="Mataco" }
+            };
+
+            return lista;
+        }
+
+        public List<Animal> ListarNomeTamanduas()
+        {
+            List<Animal> lista = new List<Animal>
+            {
+                new Animal{ani_ID=1,ani_Nome="Tamanduaí " },
+                new Animal{ani_ID=1,ani_Nome="Tamanduá-mirim " },
+                new Animal{ani_ID=1,ani_Nome="Tamanduá-bandeira " }
+            };
+
+
+            return lista;
+        }
     }
 }

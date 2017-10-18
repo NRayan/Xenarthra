@@ -36,7 +36,7 @@
                     <ViewCell x:Name="vcCatalogo" Tapped="vcCatalogo_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="catalogo.png"  WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
-                            <Label Text="Catalogo" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
+                            <Label Text="Catálogo" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
                         </StackLayout>
                     </ViewCell>
 

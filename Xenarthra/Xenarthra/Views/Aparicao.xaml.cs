@@ -1,20 +1,22 @@
-﻿using Plugin.Media;
+﻿using Plugin.ImageEdit;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.IO;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Xenarthra.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Aparicao : ContentPage
-	{
-        public Aparicao ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Aparicao : ContentPage
+    {
+        public ImageSource imgEnvio { get; set; }//Imagem passada para a View Aparicao_Envio
+        public Aparicao()
+        {
+            InitializeComponent();
+        }
         //imagem usada na captura
         byte[] img = null;
 
@@ -33,14 +35,37 @@ namespace Xenarthra.Views
             }
 
         }
-        private async void btnImgFromGallery_Clicked(object sender, EventArgs e)
+
+        private void btnCapturar_Clicked(object sender, EventArgs e)
         {
-            capturarGaleria();
+            pickerImagem.Focus();
         }
 
-        private async void btnImgFromCamera_Clicked(object sender, EventArgs e)
+        private void pickerImagem_Focused(object sender, FocusEventArgs e)
         {
-            capturarCamera();
+            pickerImagem.SelectedIndex = -1;
+        }
+
+        private void btnNext_Clicked(object sender, EventArgs e)
+        {
+            if (imgAparicao.Source != null)
+            {
+                Navigation.PushAsync(new Aparicao_Envio(imgEnvio));
+            }
+            else
+                DisplayAlert("Atenção", "Insira uma imagem para Envio", "Ok");
+        }
+
+        private void pickerImagem_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (pickerImagem.SelectedIndex == 0)
+            {
+                capturarCamera();
+            }
+            else if (pickerImagem.SelectedIndex == 1)
+            {
+                capturarGaleria();
+            }
         }
 
         private async void capturarCamera()
@@ -70,7 +95,7 @@ namespace Xenarthra.Views
 
                 img = ReadFully(file.GetStream());
                 imgAparicao.Source = ImageSource.FromStream(() => file.GetStream());
-                imgAparicao.IsVisible = true;
+                imgEnvio= ImageSource.FromStream(() => file.GetStream());
             }
 
             catch (Exception ex)
@@ -102,8 +127,8 @@ namespace Xenarthra.Views
                 }
 
                 img = ReadFully(file.GetStream());
-                imgAparicao.Source = ImageSource.FromStream(() => file.GetStream());
-                imgAparicao.IsVisible = true;
+                imgAparicao.Source= ImageSource.FromStream(() => file.GetStream());
+                imgEnvio = ImageSource.FromStream(() => file.GetStream());
             }
 
             catch (Exception ex)
@@ -111,5 +136,7 @@ namespace Xenarthra.Views
                 await this.DisplayAlert("Erro", "Problema ao Executar ação", "ok");
             }
         }
+
+
     }
 }

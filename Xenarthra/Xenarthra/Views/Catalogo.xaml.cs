@@ -20,11 +20,27 @@ namespace Xenarthra.Views
         }
 
         Animal pxnomeanimais = new Animal();
-        public List<Animal> pxNomeAnimais
+        public List<Animal> pxBichosPreguica
         {
             get
             {
-                return pxnomeanimais.ListarNomeAnimais().OrderBy(x => x.ani_Nome).ToList();
+                return pxnomeanimais.ListarNomeBichosPreguica().OrderBy(x => x.ani_Nome).ToList();
+            }
+        }
+
+        public List<Animal> pxTatus
+        {
+            get
+            {
+                return pxnomeanimais.ListarNomeTatus().OrderBy(x => x.ani_Nome).ToList();
+            }
+        }
+
+        public List<Animal> pxTamanduas
+        {
+            get
+            {
+                return pxnomeanimais.ListarNomeTamanduas().OrderBy(x => x.ani_Nome).ToList();
             }
         }
 

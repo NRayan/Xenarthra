@@ -4,21 +4,41 @@
              x:Class="Xenarthra.Views.Aparicao"
              Title="Enviar Imagem"
              BackgroundColor="#085808"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              xmlns:ff ="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffSvg ="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:ffTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnNext" Icon="next.png" Order="Primary" Clicked="btnNext_Clicked"/>
+    </ContentPage.ToolbarItems>
 
-    <Grid VerticalOptions="FillAndExpand" Margin="0,10">
-
-        <Image VerticalOptions="Center" Margin="0,0,0,55" Source="emptyimg.png" HeightRequest="128" WidthRequest="128"/>
-        <ff:CachedImage VerticalOptions="Center" Margin="0,0,0,55" x:Name="imgAparicao" HeightRequest="300" WidthRequest="300" IsVisible="False">
+    <StackLayout>
+        
+        <Grid VerticalOptions="FillAndExpand" x:Name="grid1">
+            
+            <Image VerticalOptions="Center" Margin="0,0,0,55" Source="emptyimg.png" HeightRequest="128" WidthRequest="128"/>
+            
+            <ff:CachedImage VerticalOptions="Center" Margin="0,0,0,55" x:Name="imgAparicao" HeightRequest="300" WidthRequest="300">
                 <ff:CachedImage.Transformations>
-                <ffTransformation:RoundedTransformation Radius="3" CropHeightRatio="512" CropWidthRatio="512" />
+                    <ffTransformation:RoundedTransformation Radius="10" CropHeightRatio="512" CropWidthRatio="512"/>
                 </ff:CachedImage.Transformations>
             </ff:CachedImage>
 
-        <Button x:Name="btnCapturar" Image="camera.png" HeightRequest="64" VerticalOptions="End" />
-    </Grid>
-  
+            <StackLayout VerticalOptions="End" WidthRequest="150" HorizontalOptions="Center" Margin="0,10">
+                <controls:ImageButton x:Name="btnCapturar" Clicked="btnCapturar_Clicked" Text="  Capturar" BackgroundColor="#109410" TextColor="#ffffff" FontSize="16" Source="imgbtn.png" Orientation="ImageToLeft"  ImageHeightRequest="74" ImageWidthRequest="74" BorderRadius="2" BorderWidth="1" BorderColor="#095109" />
+            </StackLayout>
+
+            <Picker IsVisible="False" x:Name="pickerImagem" Focused="pickerImagem_Focused" Unfocused="pickerImagem_Unfocused">
+                <Picker.Items>
+                    <x:String>Camera</x:String>
+                    <x:String>Galeria</x:String>
+                </Picker.Items>
+            </Picker>
+
+        </Grid>        
+        
+    </StackLayout>
+
+
 </ContentPage>

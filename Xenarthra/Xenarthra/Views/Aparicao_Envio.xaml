@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xenarthra.Views.Aparicao_Envio"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:ff ="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg ="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             BackgroundColor="#085808"
+             Title="Enviar Imagem">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnSend" Icon="send.png" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView >
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="20,0" Spacing="20">
+
+            <ff:CachedImage VerticalOptions="Start" Margin="0,15,0,0" x:Name="imgAparicao" HeightRequest="150" WidthRequest="150">
+                <ff:CachedImage.Transformations>
+                    <ffTransformation:RoundedTransformation Radius="15"/>
+                </ff:CachedImage.Transformations>
+            </ff:CachedImage>
+
+            <Entry Placeholder="Latitude" Margin="30,0" Keyboard="Telephone"/>
+            <Entry Placeholder="Longitude" Margin="30,0" Keyboard="Telephone"/>
+            <Label Text="OU" HorizontalOptions="Center"/>
+            <controls:ImageButton Text=" Capturar Coordenadas" Font="Bold,14" TextColor="White" Orientation="ImageToLeft" Source="imgLocal.png"  ImageHeightRequest="64" ImageWidthRequest="64" BackgroundColor="#E81D23" Margin="40,0"/>
+            <Label Text="Mensagem"/>
+            <controls:ExtendedEditor HeightRequest="128" BackgroundColor="#0D840D" Keyboard="Chat"/>
+            <Label Text="." TextColor="Transparent"/>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
