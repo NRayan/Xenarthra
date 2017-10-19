@@ -7,7 +7,6 @@ using Xenarthra.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-
 namespace Xenarthra.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -44,5 +43,15 @@ namespace Xenarthra.Views
             }
         }
 
+        private void lvAnimais_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
+
+        private void lvBP_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var animal = (Animal)e.Item;
+            Navigation.PushAsync(new CatalogoDetalhado());
+        }
     }
 }

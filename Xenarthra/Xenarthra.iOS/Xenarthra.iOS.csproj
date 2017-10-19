@@ -141,12 +141,6 @@
     <Reference Include="FFImageLoading.Transformations, Version=1.0.6470.25704, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.2.13\lib\Xamarin.iOS10\FFImageLoading.Transformations.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.ImageEdit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Plugin.ImageEdit.0.1.0\lib\Xamarin.iOS10\Plugin.ImageEdit.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.ImageEdit.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Plugin.ImageEdit.0.1.0\lib\Xamarin.iOS10\Plugin.ImageEdit.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="Plugin.Media, Version=2.6.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugin.Media.2.6.2\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
     </Reference>
@@ -250,6 +244,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\teste.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\perfil.jpg" />
   </ItemGroup>
   <Import Project="..\Xenarthra\Xenarthra.projitems" Label="Shared" Condition="Exists('..\Xenarthra\Xenarthra.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

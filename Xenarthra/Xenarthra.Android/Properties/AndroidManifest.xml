@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xenarthra.wwm" android:installLocation="auto" android:versionCode="1" android:versionName="1">
-	<uses-sdk android:targetSdkVersion="23" />
+	<uses-sdk android:minSdkVersion="23" />
 	<application android:label="Xenarthra">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyB2Im5mvE9kA3_wDR1V6d1ZTQ55DbXkxMc" />
 	</application>

@@ -35,18 +35,23 @@ namespace Xenarthra.Views
         {
             //Pino Basico
             var pin = new Pin
-            {
+            {                
                 Type = PinType.Place,
                 Position = new Position(-23.569269, -47.460850),
-                Label = "Fulano de tal",
-                Address = "Arvore de Parque"
+                Label = "Norton Rayan Meira",
+                Address = "Arvore de Parque"                
             };
+
+            pin.Clicked+=(sender,args)=>
+                {
+                    Navigation.PushAsync(new AparicaoDetalhado());
+                };
 
 
             //Pino em Area -- Adicionando pino de area
             var position = new Position(-23.569269, -47.460850);
             MapadeArea.Circle = new CustomCircle
-            {
+            {                
                 Position = position,
                 Radius = 6000
             };
@@ -54,6 +59,27 @@ namespace Xenarthra.Views
             //Adicionando pino Basico
             MapadeArea.Pins.Add(pin);
             MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(10.0)));
+
+
+
+
+
+            //pin.Type = PinType.Place;
+            //pin.Position = new Position(-23.706278, -47.440860);
+            //pin.Label = "maria";
+            //pin.Address = "blablabla";
+
+            
+            //position = new Position(-23.706278, -47.440860);
+
+
+            //MapadeArea.Circle = new CustomCircle
+            //{
+            //    Position = position,
+            //    Radius = 6000
+            //};
+            //MapadeArea.Pins.Add(pin);
+            
         }
 
        

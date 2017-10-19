@@ -6,7 +6,7 @@
              Title="Catálogo">
 
     <ContentPage Title="Bichos-Preguiça">
-        <ListView x:Name="lvAnimais" ItemsSource="{Binding pxBichosPreguica,Mode=TwoWay}" BackgroundColor="#085808">
+        <ListView x:Name="lvBP" ItemsSource="{Binding pxBichosPreguica,Mode=TwoWay}" ItemTapped="lvBP_ItemTapped" BackgroundColor="#085808">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -21,7 +21,7 @@
     
     
     <ContentPage Title="Tatus">
-        <ListView x:Name="lvAnimais2" ItemsSource="{Binding pxTatus,Mode=TwoWay}" BackgroundColor="#085808">
+        <ListView x:Name="lvTT" ItemsSource="{Binding pxTatus,Mode=TwoWay}" BackgroundColor="#085808">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -36,7 +36,7 @@
     
     
     <ContentPage Title="Tamanduás">
-        <ListView x:Name="lvAnimais3" ItemsSource="{Binding pxTamanduas,Mode=TwoWay}" BackgroundColor="#085808">
+        <ListView x:Name="lvTD" ItemsSource="{Binding pxTamanduas,Mode=TwoWay}" BackgroundColor="#085808">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

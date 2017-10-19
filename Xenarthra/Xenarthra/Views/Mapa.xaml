@@ -9,7 +9,7 @@
 
     <StackLayout Spacing="0" BackgroundColor="#0D840D">
         
-        <local:CustomMap x:Name="MapadeArea" MapType="Street" /> 
+        <local:CustomMap x:Name="MapadeArea" MapType="Street"/> 
         <!--
         <maps:Map x:Name="Map" IsVisible="False" />
         -->

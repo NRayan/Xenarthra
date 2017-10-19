@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xenarthra.Views.CatalogoDetalhado"
+             BackgroundColor="#085808"
+             xmlns:ff ="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg ="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             Title="Catálogo">
+
+    <StackLayout VerticalOptions="FillAndExpand">
+        <StackLayout Orientation="Horizontal" Margin="15,30,15,10">
+            <ff:CachedImage VerticalOptions="Center" Margin="0,15,0,25" x:Name="imgAnimal" Source="teste.jpg" HeightRequest="150" WidthRequest="150" >
+                <ff:CachedImage.Transformations>
+                    <ffTransformation:RoundedTransformation Radius="300" CropHeightRatio="300" CropWidthRatio="300"/>
+                </ff:CachedImage.Transformations>
+            </ff:CachedImage>
+
+            <StackLayout Margin="5,60,0,0">
+                <Label Text="Bicho-Preguiça Real" TextColor="#C9C9C9" FontSize="18"/>
+                <Label Text="Nome Científico: Bradypus variegatus" TextColor="#C9C9C9" FontSize="14"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Margin="20,0">
+            <Label Text="Descrição: " TextColor="#A7A7A7"/>
+            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." FontSize="18" TextColor="#C9C9C9"/>
+        </StackLayout>
+        
+    </StackLayout>
+    
+</ContentPage>

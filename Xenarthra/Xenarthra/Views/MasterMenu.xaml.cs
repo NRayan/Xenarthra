@@ -41,8 +41,10 @@ namespace Xenarthra.Views
         {
             mdpView.Detail = new NavigationPage(new Aparicao());
         }
-    
 
-
+        private void vcInfo_Tapped(object sender, EventArgs e)
+        {
+            mdpView.Detail = new NavigationPage(new Informacao());
+        }
     }
 }

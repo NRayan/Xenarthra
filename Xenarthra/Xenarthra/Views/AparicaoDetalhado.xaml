@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xenarthra.Views.AparicaoDetalhado"
+             BackgroundColor="#085808"
+             xmlns:ff ="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg ="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+            Title="Aparição">
+
+    <ContentPage Title="Envio">
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand">
+
+                <StackLayout VerticalOptions="Start" HorizontalOptions="Fill" BackgroundColor="#0A700A">
+
+                    <StackLayout Orientation="Horizontal" Spacing="5" Margin="30,15">
+
+                        <ff:CachedImage Source="perfil.jpg" HeightRequest="76" WidthRequest="76" Margin="0">
+                            <ff:CachedImage.Transformations>
+                                <ffTransformation:RoundedTransformation Radius="300"/>
+                            </ff:CachedImage.Transformations>
+                        </ff:CachedImage>
+
+                        <Label Text="Norton Rayan Meira" TextColor="White" Font="18" Margin="10,25,0,0"/>
+
+                    </StackLayout>
+
+                </StackLayout>
+
+                <ff:CachedImage Source="tatu.jpg" HeightRequest="300" WidthRequest="300" Margin="0,10">
+                    <ff:CachedImage.Transformations>
+                        <ffTransformation:RoundedTransformation Radius="10"/>
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+
+                <StackLayout Margin="15,5">
+                    
+                
+                <Label Text="Comentário: " TextColor="#A7A7A7"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." FontSize="18" TextColor="#C9C9C9"/>
+                <Label Text=" "/>
+
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage>
+
+    
+    
+    <ContentPage Title="Comentário">
+        
+        <StackLayout VerticalOptions="FillAndExpand">
+
+            <StackLayout VerticalOptions="Start" HorizontalOptions="Fill" BackgroundColor="#0A700A">
+
+                <StackLayout Orientation="Horizontal" Spacing="5" Margin="30,15">
+
+                    <ff:CachedImage Source="profile.png" HeightRequest="76" WidthRequest="76" Margin="0">
+                        <ff:CachedImage.Transformations>
+                            <ffTransformation:RoundedTransformation Radius="300"/>
+                        </ff:CachedImage.Transformations>
+                    </ff:CachedImage>
+
+                    <Label Text="Administrador" TextColor="White" Font="18" Margin="10,25,0,0"/>
+
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Margin="15">
+
+
+                    <Label Text="Comentário: " TextColor="#A7A7A7"/>
+                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." FontSize="18" TextColor="#C9C9C9"/>
+                    <Label Text=" "/>
+
+                </StackLayout>
+
+
+            </StackLayout>
+
+    </ContentPage>
+    
+    
+</TabbedPage>

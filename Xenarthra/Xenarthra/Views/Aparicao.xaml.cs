@@ -1,9 +1,7 @@
-﻿using Plugin.ImageEdit;
-using Plugin.Media;
+﻿using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.IO;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -56,7 +54,7 @@ namespace Xenarthra.Views
                 DisplayAlert("Atenção", "Insira uma imagem para Envio", "Ok");
         }
 
-        private void pickerImagem_Unfocused(object sender, FocusEventArgs e)
+        private async void pickerImagem_Unfocused(object sender, FocusEventArgs e)
         {
             if (pickerImagem.SelectedIndex == 0)
             {
@@ -85,7 +83,8 @@ namespace Xenarthra.Views
                     PhotoSize = PhotoSize.Medium,
                     AllowCropping = true,
                     SaveToAlbum = true,
-                    Name = "capXen.jpg"
+                    Name = "capXen.jpg",
+                    DefaultCamera=CameraDevice.Front
                 });
 
                 if (file == null)
