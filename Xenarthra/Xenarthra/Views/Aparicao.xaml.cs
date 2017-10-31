@@ -17,6 +17,7 @@ namespace Xenarthra.Views
         }
         //imagem usada na captura
         byte[] img = null;
+        protected Image _photo;
 
         //Conversor Imagem -> Bytes
         public byte[] ReadFully(Stream Imput)
@@ -25,7 +26,7 @@ namespace Xenarthra.Views
             using (MemoryStream ms = new MemoryStream())
             {
                 int read;
-                while ((read = Imput.Read(buffer, 0, buffer.Length)) > 0)
+                while ((read=Imput.Read(buffer,0,buffer.Length))>0)
                 {
                     ms.Write(buffer, 0, read);
                 }
@@ -37,12 +38,7 @@ namespace Xenarthra.Views
         private void btnCapturar_Clicked(object sender, EventArgs e)
         {
             pickerImagem.Focus();
-        }
-
-        private void pickerImagem_Focused(object sender, FocusEventArgs e)
-        {
-            pickerImagem.SelectedIndex = -1;
-        }
+        }       
 
         private void btnNext_Clicked(object sender, EventArgs e)
         {
@@ -53,8 +49,12 @@ namespace Xenarthra.Views
             else
                 DisplayAlert("Atenção", "Insira uma imagem para Envio", "Ok");
         }
+        private void pickerImagem_Focused(object sender, FocusEventArgs e)
+        {
+            pickerImagem.SelectedIndex = -1;
+        }
 
-        private async void pickerImagem_Unfocused(object sender, FocusEventArgs e)
+        private void pickerImagem_Unfocused(object sender, FocusEventArgs e)
         {
             if (pickerImagem.SelectedIndex == 0)
             {
@@ -84,7 +84,7 @@ namespace Xenarthra.Views
                     AllowCropping = true,
                     SaveToAlbum = true,
                     Name = "capXen.jpg",
-                    DefaultCamera=CameraDevice.Front
+                    DefaultCamera=CameraDevice.Front,
                 });
 
                 if (file == null)

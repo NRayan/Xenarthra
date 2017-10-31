@@ -9,17 +9,17 @@ namespace Xenarthra.Models
         public int ani_ID { get; set; }
         public string ani_NomeCient { get; set; }
         public string ani_Nome { get; set; }
-        public byte ani_Imagem { get; set; }
         public string ani_Descricao { get; set; }
-        public string ani_Familia { get; set; }
+        public byte[] ani_IMG { get; set; }
+        
 
         public List<Animal> ListarAnimais()
         {
             List<Animal> lista = new List<Animal>
             {
-                new Animal{ani_ID=1,ani_NomeCient="asdasd",ani_Nome="tatu",ani_Descricao="muy pequenito e macaquito",ani_Familia="tatuzoes"},
-                new Animal{ani_ID=1,ani_NomeCient="bdsabdsa",ani_Nome="tamandua",ani_Descricao="doido de pedra lascada da primaveira verao de 2012 copa cabana nova iorque sao francisquinho",ani_Familia="tamanta"},
-                new Animal{ani_ID=1,ani_NomeCient="bibichocho",ani_Nome="Bicho preguiça",ani_Descricao="o mais loco dos crazy night dog",ani_Familia="sloth"}
+                new Animal{ani_ID=1,ani_NomeCient="asdasd",ani_Nome="tatu",ani_Descricao="muy pequenito e macaquito"},
+                new Animal{ani_ID=1,ani_NomeCient="bdsabdsa",ani_Nome="tamandua",ani_Descricao="doido de pedra lascada da primaveira verao de 2012 copa cabana nova iorque sao francisquinho"},
+                new Animal{ani_ID=1,ani_NomeCient="bibichocho",ani_Nome="Bicho preguiça",ani_Descricao="o mais loco dos crazy night dog"}
             };
 
 

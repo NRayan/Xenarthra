@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
-using Xenarthra.ViewModels;
 namespace Xenarthra.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Mapa : ContentPage
 	{
-        public MapaVM MapaViewModel { get; set; }
         public Mapa ()
 		{            
             InitializeComponent ();
-            MapaViewModel = new MapaVM();
-            this.BindingContext = MapaViewModel;
             testePinoArea();
             MapadeArea.IsShowingUser = false;                        
         }
@@ -50,9 +46,17 @@ namespace Xenarthra.Views
 
             //Pino em Area -- Adicionando pino de area
             var position = new Position(-23.569269, -47.460850);
+
             MapadeArea.Circle = new CustomCircle
             {                
                 Position = position,
+                Radius = 6000
+            };
+
+
+            MapadeArea.Circle = new CustomCircle
+            {
+                Position = new Position(-22.569269, -45.460850),
                 Radius = 6000
             };
 
@@ -60,26 +64,15 @@ namespace Xenarthra.Views
             MapadeArea.Pins.Add(pin);
             MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(10.0)));
 
+            var pin2 = new Pin
+            {
+                Type = PinType.Place,
+                Position = new Position(-22.569269, -45.460850),
+                Label = "Joaozin",
+                Address = "Arvore de Parque"
+            };
+            MapadeArea.Pins.Add(pin2);
 
-
-
-
-            //pin.Type = PinType.Place;
-            //pin.Position = new Position(-23.706278, -47.440860);
-            //pin.Label = "maria";
-            //pin.Address = "blablabla";
-
-            
-            //position = new Position(-23.706278, -47.440860);
-
-
-            //MapadeArea.Circle = new CustomCircle
-            //{
-            //    Position = position,
-            //    Radius = 6000
-            //};
-            //MapadeArea.Pins.Add(pin);
-            
         }
 
        

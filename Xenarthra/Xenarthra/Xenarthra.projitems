@@ -15,9 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Animal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Aparicao.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Usuario.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginVM.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MapaVM.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VMBaseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Aparicao.xaml.cs">
       <DependentUpon>Aparicao.xaml</DependentUpon>
       <SubType>Code</SubType>

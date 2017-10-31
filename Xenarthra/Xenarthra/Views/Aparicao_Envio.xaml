@@ -26,7 +26,7 @@
             <Entry Placeholder="Latitude" Margin="30,0" Keyboard="Telephone"/>
             <Entry Placeholder="Longitude" Margin="30,0" Keyboard="Telephone"/>
             <Label Text="OU" HorizontalOptions="Center"/>
-            <controls:ImageButton Text=" Capturar Coordenadas" Font="Bold,14" TextColor="White" Orientation="ImageToLeft" Source="imgLocal.png"  ImageHeightRequest="64" ImageWidthRequest="64" BackgroundColor="#E81D23" Margin="40,0"/>
+            <controls:ImageButton Text=" Capturar Coordenadas" Font="14" TextColor="White" Orientation="ImageToLeft" Source="imgLocal.png"  ImageHeightRequest="64" ImageWidthRequest="64" BackgroundColor="#0D840D" WidthRequest="230" HorizontalOptions="Center"/>
             <Label Text="Mensagem"/>
             <controls:ExtendedEditor HeightRequest="128" BackgroundColor="#0D840D" Keyboard="Chat"/>
             <Label Text="." TextColor="Transparent"/>

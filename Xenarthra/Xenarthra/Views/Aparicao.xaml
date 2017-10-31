@@ -25,9 +25,9 @@
                 </ff:CachedImage.Transformations>
             </ff:CachedImage>
 
-            <StackLayout VerticalOptions="End" WidthRequest="150" HorizontalOptions="Center" Margin="0,10">
-                <controls:ImageButton x:Name="btnCapturar" Clicked="btnCapturar_Clicked" Text="  Capturar" BackgroundColor="#109410" TextColor="#ffffff" FontSize="16" Source="imgbtn.png" Orientation="ImageToLeft"  ImageHeightRequest="74" ImageWidthRequest="74" BorderRadius="2" BorderWidth="1" BorderColor="#095109" />
-            </StackLayout>
+            
+            <controls:ImageButton x:Name="btnCapturar" Clicked="btnCapturar_Clicked" Text="  Capturar" BackgroundColor="#109410" TextColor="#ffffff" FontSize="16" Source="imgbtn.png" Orientation="ImageToLeft"  ImageHeightRequest="74" ImageWidthRequest="74" WidthRequest="145" BorderWidth="1" BorderColor="#095109" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,10" />
+            
 
             <Picker IsVisible="False" x:Name="pickerImagem" Focused="pickerImagem_Focused" Unfocused="pickerImagem_Unfocused">
                 <Picker.Items>
