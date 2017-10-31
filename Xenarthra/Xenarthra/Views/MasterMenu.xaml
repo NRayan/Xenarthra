@@ -2,9 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xenarthra.Views.MasterMenu"
-             Title="Menu">
+             Title="Menu"
+             BackgroundColor="White"
+             xmlns:ff ="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg ="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
+    
     <StackLayout BackgroundColor="Transparent" Spacing="0">
+
         <StackLayout BackgroundColor="#0D840D" HeightRequest="200">
+
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="0,30,0,0">
+
+                <ff:CachedImage Source="perfil.jpg" HeightRequest="76" WidthRequest="76" Margin="0,0,0,10">
+                    <ff:CachedImage.Transformations>
+                        <ffTransformation:RoundedTransformation Radius="300"/>
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                
+                <!--
+                <Image Source="perfil.png" WidthRequest="76" HeightRequest="76" Margin="0,0,0,10" />
+                -->
+                
+                
+                <Label Text="Norton Rayan Meira" HorizontalOptions="Center" FontSize="20" TextColor="White"></Label>
+            </StackLayout>
 
         </StackLayout>
 
@@ -19,7 +41,7 @@
                         </StackLayout>
                     </ViewCell>
 
-                    <ViewCell>
+                    <ViewCell x:Name="vcImagem" Tapped="vcImagem_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="camera.png"  WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
                             <Label Text="Enviar Imagem" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
@@ -29,20 +51,20 @@
                     <ViewCell x:Name="vcCatalogo" Tapped="vcCatalogo_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="catalogo.png"  WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
-                            <Label Text="Catalogo" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
+                            <Label Text="Catálogo" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
                         </StackLayout>
                     </ViewCell>
 
-                    <ViewCell>
+                    <ViewCell x:Name="vcInfo" Tapped="vcInfo_Tapped">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="info.png" WidthRequest="28" HeightRequest="28" Margin="15,0"></Image>
                             <Label Text="Informação" VerticalOptions="Center" FontSize="16" TextColor="Black"></Label>
                         </StackLayout>
-                    </ViewCell>
-
+                    </ViewCell>                    
                 </TableSection>
             </TableRoot>
         </TableView>
-
+        <Image Source="iconl.png" VerticalOptions="End" WidthRequest="134" HeightRequest="27" Margin="0,0,0,30"></Image>
+        
     </StackLayout>
 </ContentPage>

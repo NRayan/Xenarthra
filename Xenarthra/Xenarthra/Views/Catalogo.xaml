@@ -1,7 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xenarthra.Views.Catalogo"
-             BackgroundColor="#085808"
-             Title="Catalogo">
-</ContentPage>
+             xmlns:pages="clr-namespace:Xenarthra.Views;assembly=Xenarthra.Views"
+             Title="Catálogo">
+
+    <ContentPage Title="Bichos-Preguiça">
+        <ListView x:Name="lvBP" ItemsSource="{Binding pxBichosPreguica,Mode=TwoWay}" ItemTapped="lvBP_ItemTapped" BackgroundColor="#085808">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Label Text="{Binding ani_Nome}" FontSize="20" TextColor="White" VerticalTextAlignment="Center" Margin="20,0"></Label>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+    
+    
+    <ContentPage Title="Tatus">
+        <ListView x:Name="lvTT" ItemsSource="{Binding pxTatus,Mode=TwoWay}" BackgroundColor="#085808">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Label Text="{Binding ani_Nome}" FontSize="20" TextColor="White" VerticalTextAlignment="Center" Margin="20,0"></Label>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+    
+    
+    <ContentPage Title="Tamanduás">
+        <ListView x:Name="lvTD" ItemsSource="{Binding pxTamanduas,Mode=TwoWay}" BackgroundColor="#085808">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Label Text="{Binding ani_Nome}" FontSize="20" TextColor="White" VerticalTextAlignment="Center" Margin="20,0"></Label>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+
+
+    
+</TabbedPage>

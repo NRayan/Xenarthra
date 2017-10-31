@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,26 +12,19 @@ using Xamarin.Forms.Xaml;
 
 namespace Xenarthra.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MasterMenu : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MasterMenu : ContentPage
+    {
         public MasterDetailPage mdpView { get; set; }
-        public MasterMenu ()
-		{
-			InitializeComponent ();
-            this.BackgroundColor = new Color(255, 255, 255, 0.5);
-		}
-
-        public MasterMenu(MasterDetailPage objMDP)
+        public MasterMenu()
         {
-            this.BackgroundColor = new Color(255, 255, 255, 0.8);
-            mdpView = objMDP;
             InitializeComponent();
         }
 
-        public void btnMapa()
+        public MasterMenu(MasterDetailPage objMDP)
         {
-            DisplayAlert("teste", "teste", "ok");
+            mdpView = objMDP;
+            InitializeComponent();
         }
 
         private void vcMapa_Tapped(object sender, EventArgs e)
@@ -39,6 +35,16 @@ namespace Xenarthra.Views
         private void vcCatalogo_Tapped(object sender, EventArgs e)
         {
             mdpView.Detail = new NavigationPage(new Catalogo());
+        }
+
+        private void vcImagem_Tapped(object sender, EventArgs e)
+        {
+            mdpView.Detail = new NavigationPage(new Aparicao());
+        }
+
+        private void vcInfo_Tapped(object sender, EventArgs e)
+        {
+            mdpView.Detail = new NavigationPage(new Informacao());
         }
     }
 }

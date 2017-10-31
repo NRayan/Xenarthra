@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xenarthra.Views.Cadastro"
+             BackgroundColor="#0D840D"
+             xmlns:ff ="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg ="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
+    
+    <StackLayout VerticalOptions="Center" Margin="30,0,30,30">
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+            <ff:CachedImage x:Name="imgPerfil" Source="profile.png" HeightRequest="128" WidthRequest="128" Margin="48,0,5,20">
+                <ff:CachedImage.Transformations>
+                    <ffTransformation:RoundedTransformation Radius="240" CropHeightRatio="240" CropWidthRatio="240" />
+                </ff:CachedImage.Transformations>
+            </ff:CachedImage>
+            
+            <Image Source="plus.png" WidthRequest="48" HeightRequest="48" Margin="0,0,0,20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="btnImagem" Tapped="btnImagem_Tapped"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+        
+        <Entry Placeholder="Nome Completo"/>
+        <Entry Placeholder="Email" Keyboard="Email"/>
+        <Entry Placeholder="Senha" IsPassword="True"/>
+        <Button Text="Confirmar" TextColor="White" BackgroundColor="#005188" BorderRadius="0" Margin="10,20,10,0"/>
+        
+        <Picker IsVisible="False" x:Name="pickerImagem" Focused="pickerImagem_Focused" Unfocused="pickerImagem_Unfocused">
+            <Picker.Items>
+                <x:String>Camera</x:String>
+                <x:String>Galeria</x:String>
+            </Picker.Items>
+        </Picker>
+        
+    </StackLayout>
+</ContentPage>
