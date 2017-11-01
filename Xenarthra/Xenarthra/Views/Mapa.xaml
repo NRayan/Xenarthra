@@ -4,17 +4,12 @@
              xmlns:local="clr-namespace:Xenarthra.Views"
              x:Class="Xenarthra.Views.Mapa"           
              Title="Mapa" 
-             BackgroundColor="AliceBlue"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 
     <StackLayout Spacing="0" BackgroundColor="#0D840D">
         
         <local:CustomMap x:Name="MapadeArea" MapType="Street"/> 
-        <!--
-        <maps:Map x:Name="Map" IsVisible="False" />
-        -->
         
-        <!--   Frames Simulando Botões     -->        
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" BackgroundColor="Transparent">
 
             <Frame x:Name="btnSloth" x:Uid="1"  BackgroundColor="Transparent" Margin="0,10,15,10" CornerRadius="15">

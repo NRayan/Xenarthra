@@ -4,13 +4,17 @@
              x:Class="Xenarthra.Views.Informacao"
              Title="Informação"
              BackgroundColor="#064406">
-
-    <TableView Intent="Menu" RowHeight="56">
-        <TableRoot>
-            <TableSection>
-                <TextCell Text="Sobre o aplicativo" TextColor="#E6E6E6"/>
-                <TextCell Text="Superordem Xenarthra" TextColor="#E6E6E6"/>
-            </TableSection> 
-        </TableRoot>
-    </TableView>
+    
+    <StackLayout VerticalOptions="FillAndExpand">
+        
+        <TableView Intent="Menu" RowHeight="56">
+            <TableRoot>
+                <TableSection>
+                    <TextCell Text="Sobre o aplicativo" TextColor="#E6E6E6"/>
+                    <TextCell Text="Superordem Xenarthra" TextColor="#E6E6E6"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        
+    </StackLayout>
 </ContentPage>
