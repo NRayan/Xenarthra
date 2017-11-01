@@ -9,10 +9,11 @@ namespace Models
     public class Usuarios
     {
         public int usu_ID { get; set; }
-        public string usu_NOME { get; set; }
+        public string usu_Nome { get; set; }
         public Byte usu_IMG { get; set; }
-        public string usu_USUARIO { get; set; }
-        public string  usu_EMAIL { get; set; }
-        public string  usu_SENHA { get; set; }
+        public bool usu_ADM { get; set; }
+        public string  usu_Email { get; set; }
+        public string  usu_Senha { get; set; }
     }
+
 }

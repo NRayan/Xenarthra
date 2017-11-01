@@ -9,11 +9,10 @@ namespace Models
     public class Animais
     {
         public int ani_ID { get; set; }
-        public string  ani_NOMECIENT { get; set; }
-        public string ani_NOME { get; set; }
+        public string  ani_NomeCient { get; set; }
+        public string ani_Nome { get; set; }
         public Byte[] ani_IMG { get; set; }
-        public string  ani_DESCRICAO { get; set; }
-        public string ani_FAMILIA { get; set; }
-        public int ani_IDENTIFICACAO { get; set;}
+        public string  ani_Descricao { get; set; }
+        public int  ani_Tipo { get; set; }
     }
 }

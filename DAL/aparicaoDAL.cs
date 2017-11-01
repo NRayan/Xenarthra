@@ -22,16 +22,22 @@ namespace DAL
                 {
                     conn.Open();
 
-                    string sql = "  Insert into APARICAO Values(@apa_ID_USU, @apa_ID_ANI, @apa_COMENTARIO, @apa_VALIDADO, @apa_LATITUDE, @apa_LONGITUDE )";
+                    string sql = "  Insert into APARICAO Values(@apa_ID_USU, @apa_ID_ANI, @apa_Comentario, @apa_ComentarioADM, @apa_status, @apa_Latitude, @apa_Longitude, @apa_Data, @apa_IMG, apa_tipo_animal )";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@apa_ID_USU", objApar.apa_ID_USU);
                     cmd.Parameters.AddWithValue("@apa_ID_ANI", objApar.apa_ID_ANI);
-                    cmd.Parameters.AddWithValue("@apa_COMENTARIO", objApar.apa_COMENTARIO);
-                    cmd.Parameters.AddWithValue("@apa_VALIDADO", objApar.apa_VALIDADO);
-                    cmd.Parameters.AddWithValue("@apa_LATITUDE", objApar.apa_LATITUDE);
-                    cmd.Parameters.AddWithValue("@apa_LONGITUDE", objApar.apa_LONGITUDE);
+                    cmd.Parameters.AddWithValue("@apa_Comentario", objApar.apa_Comentario);
+                    cmd.Parameters.AddWithValue("@apa_ComentarioADM", objApar.apa_ComentarioADM);
+                    cmd.Parameters.AddWithValue("@apa_status", objApar.apa_status);
+                    cmd.Parameters.AddWithValue("@apa_Latitude", objApar.apa_Latitude);
+                    cmd.Parameters.AddWithValue("@apa_Longitude", objApar.apa_Longitude);
+                    cmd.Parameters.AddWithValue("@apa_Data", objApar.apa_Data);
+                    cmd.Parameters.AddWithValue("@apa_IMG", objApar.apa_IMG);
+                    cmd.Parameters.AddWithValue("@apa_tipo_animal", objApar.apa_tipo_animal);
+                
 
-                    cmd.ExecuteNonQuery();
+
+                cmd.ExecuteNonQuery();
 
                 }
                 catch (Exception)
@@ -68,13 +74,17 @@ namespace DAL
                         Apa = new Aparicoes();
                         Apa.apa_ID_ANI = Convert.ToInt32(dr["apa_ID_ANI"]);
                         Apa.apa_ID_USU = Convert.ToInt32(dr["apa_ID_USU"]);
-                        Apa.apa_COMENTARIO = dr["apa_COMENTARIO"].ToString();
-                        Apa.apa_LATITUDE = Convert.ToDecimal(dr["apa_LATITUDE"]);
-                        Apa.apa_LONGITUDE = Convert.ToDecimal(dr["apa_LONGITUDE"]);
-                        Apa.apa_VALIDADO = Convert.ToBoolean(dr["apa_VALIDADO"]);
+                        Apa.apa_Comentario = dr["apa_Comentario"].ToString();
+                        Apa.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
+                        Apa.apa_status = Convert.ToBoolean(dr["apa_status"]);
+                        Apa.apa_Latitude = Convert.ToDecimal(dr["apa_Latitude"]);
+                        Apa.apa_Longitude = Convert.ToDecimal(dr["apa_Longitude"]);
+                        Apa.apa_Data = Convert.ToDateTime(dr["apa_Data"]).Date;
+                        Apa.apa_IMG = Convert.ToByte(dr["apa.IMG"]);
+                        Apa.apa_tipo_animal = Convert.ToInt32(dr["apa_tipo_animal"]);
                     }
-                }
-                catch (Exception)
+            }
+            catch (Exception)
                 {
                     throw;
                 }
@@ -96,14 +106,19 @@ namespace DAL
                 {
                     conn.Open();
 
-                    string sql = "UPDATE ANIMAL SET apa_ID_USU=@apa_ID_USU, apa_ID_ANI=@apa_ID_ANI, apa_COMENTARIO=@apa_COMENTARIO, apa_VALIDADO=@apa_VALIDADO, apa_LATITUDE=@apa_LONGITUDE WHERE apa_ID=@apa_ID";
+                    string sql = "UPDATE ANIMAL SET @apa_ID_USU, @apa_ID_ANI, @apa_Comentario, @apa_ComentarioADM, @apa_status, @apa_Latitude, @apa_Longitude, @apa_Data, @apa_IMG, apa_tipo_animal";
                     SqlCommand cmd = new SqlCommand(sql, conn);
+
                     cmd.Parameters.AddWithValue("@apa_ID_USU", objApar.apa_ID_USU);
                     cmd.Parameters.AddWithValue("@apa_ID_ANI", objApar.apa_ID_ANI);
-                    cmd.Parameters.AddWithValue("@apa_COMENTARIO", objApar.apa_COMENTARIO);
-                    cmd.Parameters.AddWithValue("@apa_VALIDADO", objApar.apa_VALIDADO);
-                    cmd.Parameters.AddWithValue("@apa_LATITUDE", objApar.apa_LATITUDE);
-                    cmd.Parameters.AddWithValue("@apa_LONGITUDE", objApar.apa_LONGITUDE);
+                    cmd.Parameters.AddWithValue("@apa_Comentario", objApar.apa_Comentario);
+                    cmd.Parameters.AddWithValue("@apa_ComentarioADM", objApar.apa_ComentarioADM);
+                    cmd.Parameters.AddWithValue("@apa_status", objApar.apa_status);
+                    cmd.Parameters.AddWithValue("@apa_Latitude", objApar.apa_Latitude);
+                    cmd.Parameters.AddWithValue("@apa_Longitude", objApar.apa_Longitude);
+                    cmd.Parameters.AddWithValue("@apa_Data", objApar.apa_Data);
+                    cmd.Parameters.AddWithValue("@apa_IMG", objApar.apa_IMG);
+                    cmd.Parameters.AddWithValue("@apa_tipo_animal", objApar.apa_tipo_animal);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception)
