@@ -71,7 +71,7 @@ namespace DAL
                         A.ani_Nome = dr["ani_Nome"].ToString();
                         A.ani_Descricao = dr["ani_Descricao"].ToString();
                         A.ani_Tipo = Convert.ToInt32(dr["ani_Tipo"]);
-                        A.ani_IMG = (byte[])dr["ani_IMG"];
+                        //A.ani_IMG = (byte[])dr["ani_IMG"];
 
                         lista.Add(A);
                     }

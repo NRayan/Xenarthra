@@ -14,7 +14,6 @@ namespace Xenarthra.Views
         public Mapa ()
 		{            
             InitializeComponent ();
-            MapadeArea.IsShowingUser = false;
             mapearPinos();                 
         }
 
@@ -68,18 +67,7 @@ namespace Xenarthra.Views
             pinos.Add(pin);
             pinos.Add(pin2);
             pinos.Add(pin3);
-            pinos.Add(pin4);
-
-            string aux;
-
-            MapadeArea.PropertyChanged += (object sender, System.ComponentModel.PropertyChangedEventArgs e) => 
-            {
-                var m = (CustomMap)sender;
-                if (m.VisibleRegion != null)
-                {
-                    aux=("Lat: " + m.VisibleRegion.Center.Latitude.ToString() + " Lon:" + m.VisibleRegion.Center.Longitude.ToString());
-                }
-            };
+            pinos.Add(pin4);                     
 
             foreach (Pin pino in pinos)
             {
@@ -93,18 +81,11 @@ namespace Xenarthra.Views
                     Navigation.PushAsync(new AparicaoDetalhado());
                 };
             }
-           
 
             //Pino em Area -- Adicionando pino de area
             var position = new Position(-23.569269, -47.460850);
 
-            MapadeArea.Circle = new CustomCircle
-            {                
-                Position = position,
-                Radius = 6000
-            };
-
-            MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(10.0)));
+           // MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(10.0)));
 
            
 
