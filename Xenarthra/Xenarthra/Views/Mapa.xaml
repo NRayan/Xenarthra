@@ -8,8 +8,9 @@
 
     <StackLayout Spacing="0" BackgroundColor="#0D840D">
         
-        <local:CustomMap x:Name="MapadeArea" MapType="Street"/> 
-        
+        <!--<local:CustomMap x:Name="MapadeArea" MapType="Street"/>-->
+        <maps:Map x:Name="MapadeArea" MapType="Street"/>
+
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" BackgroundColor="Transparent">
 
             <Frame x:Name="btnSloth" x:Uid="1"  BackgroundColor="Transparent" Margin="0,10,15,10" CornerRadius="15">
