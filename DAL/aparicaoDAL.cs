@@ -5,13 +5,20 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using Models;
+using static System.Net.Mime.MediaTypeNames;
+using System.IO;
+using System.Data;
 
 namespace DAL
 {
     public class aparicaoDAL
     {
             string connectionString = ConfigurationManager.ConnectionStrings["BDXenarthraConnectionString"].ConnectionString;
-
+        public struct RetCatalogo
+        {
+           public Animais AN;
+           public Aparicoes AP;
+        }
 
             public void InserirAparicao(Aparicoes objApar)
             {
@@ -22,7 +29,7 @@ namespace DAL
                 {
                     conn.Open();
 
-                    string sql = "  Insert into APARICAO Values(@apa_ID_USU, @apa_ID_ANI, @apa_Comentario, @apa_ComentarioADM, @apa_status, @apa_Latitude, @apa_Longitude, @apa_Data, @apa_IMG, apa_tipo_animal )";
+                    string sql = "  Insert into APARICAO Values(@apa_Comentario, @apa_ComentarioADM,@apa_Data,@apa_Latitude, @apa_Longitude,@apa_IMG,@apa_status,@apa_tipo_animal, @apa_ID_USU, @apa_ID_ANI)";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@apa_ID_USU", objApar.apa_ID_USU);
                     cmd.Parameters.AddWithValue("@apa_ID_ANI", objApar.apa_ID_ANI);
@@ -33,6 +40,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@apa_Longitude", objApar.apa_Longitude);
                     cmd.Parameters.AddWithValue("@apa_Data", objApar.apa_Data);
                     cmd.Parameters.AddWithValue("@apa_IMG", objApar.apa_IMG);
+                    cmd.Parameters.AddWithValue("@apa_tipo_animal", objApar.apa_tipo_animal);
                 
 
 
@@ -51,7 +59,98 @@ namespace DAL
                 }
             }
 
-            
+        public List<RetCatalogo> BuscarAparicoesNome(string Nome)
+        {
+            List<RetCatalogo> lista = new List<RetCatalogo>();
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                string sql = "Select ani_Nome,apa_ComentarioADM,apa_IMG from ANIMAL as AN inner join APARICAO as AP ON AN.ani_ID = AP.apa_ID_ANI WHERE ani_Nome = @ani_Nome";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ani_Nome", Nome);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    RetCatalogo An_AP;
+                    
+                    while (dr.Read())
+                    {
+                        An_AP = new RetCatalogo();
+                        An_AP.AN.ani_Nome = dr["ani_Nome"].ToString();
+                        An_AP.AP.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
+                        An_AP.AP.apa_IMG = (byte[])dr["apa_IMG"];
+
+                        lista.Add(An_AP);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+
+            return lista;
+        }
+
+        public List<Aparicoes> BuscarAparicoesCatalogo()
+        {
+            List<Aparicoes> lista = new List<Aparicoes>();
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                string sql = "Select apa_Latitude,apa_Longitude,apa_Comentario,apa_ComentarioADM,apa_IMG from APARICAO";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    
+                   Aparicoes Apari;
+
+                    while (dr.Read())
+                    {
+                        
+                       Apari = new Aparicoes();
+                       Apari.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
+                        Apari.apa_Comentario = dr["apa_Comentario"].ToString();
+                        Apari.apa_Latitude = Convert.ToDecimal(dr["apa_Latitude"]);
+                        Apari.apa_Longitude = Convert.ToDecimal(dr["apa_Longitude"]);
+                        Apari.apa_IMG = (byte[])dr["apa_IMG"];
+
+                        lista.Add(Apari);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+
+            return lista;
+        }
             public Aparicoes BuscarAparicaoCodigoAnimal(int cod)
             {
                 Aparicoes Apa = null;
@@ -75,11 +174,12 @@ namespace DAL
                         Apa.apa_ID_USU = Convert.ToInt32(dr["apa_ID_USU"]);
                         Apa.apa_Comentario = dr["apa_Comentario"].ToString();
                         Apa.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
-                        Apa.apa_status = Convert.ToBoolean(dr["apa_status"]);
+                        Apa.apa_status = Convert.ToInt32(dr["apa_status"]);
                         Apa.apa_Latitude = Convert.ToDecimal(dr["apa_Latitude"]);
                         Apa.apa_Longitude = Convert.ToDecimal(dr["apa_Longitude"]);
                         Apa.apa_Data = Convert.ToDateTime(dr["apa_Data"]).Date;
-                        //Apa.apa_IMG = Convert.ToByte(dr["apa.IMG"]);
+                        Apa.apa_IMG = (byte[])dr["apa_IMG"];
+                        Apa.apa_tipo_animal = Convert.ToInt32(dr["apa_tipo_animal"]);
                     }
             }
             catch (Exception)
@@ -116,6 +216,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@apa_Longitude", objApar.apa_Longitude);
                     cmd.Parameters.AddWithValue("@apa_Data", objApar.apa_Data);
                     cmd.Parameters.AddWithValue("@apa_IMG", objApar.apa_IMG);
+                    cmd.Parameters.AddWithValue("@apa_tipo_animal", objApar.apa_tipo_animal);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception)

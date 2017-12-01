@@ -91,6 +91,52 @@ namespace DAL
             return lista;
         }
 
+        public List<Animais> BuscarAnimaisNome(string Nome)
+        {
+            List<Animais> lista = new List<Animais>();
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                string sql = "SELECT * FROM ANIMAL WHERE ani_Nome = @ani_Nome";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ani_Nome", Nome);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    Animais A = null;
+                    while (dr.Read())
+                    {
+                        A = new Animais();
+                        A.ani_ID = Convert.ToInt32(dr["ani_ID"]);
+                        A.ani_NomeCient = dr["ani_NomeCient"].ToString();
+                        A.ani_Nome = dr["ani_Nome"].ToString();
+                        A.ani_Descricao = dr["ani_Descricao"].ToString();
+                        A.ani_Tipo = Convert.ToInt32(dr["ani_Tipo"]);
+                        A.ani_IMG = (byte[])dr["ani_IMG"];
+
+                        lista.Add(A);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+
+            return lista;
+        }
         public Animais BuscarAnimalCodigo(int cod)
         {
             Animais A = null;
@@ -130,6 +176,8 @@ namespace DAL
 
             return A;
         }
+
+
 
        
        public void AlteraAnimal(Animais objAnimal)
