@@ -115,7 +115,7 @@ namespace DAL
                     A.ani_Nome = dr["ani_Nome"].ToString();
                     A.ani_Descricao = dr["ani_Descricao"].ToString();
                     A.ani_Tipo = Convert.ToInt32(dr["ani_Tipo"]);
-                    A.ani_IMG = (byte[])dr["ani_IMG"];
+                   // A.ani_IMG = (byte[])dr["ani_IMG"];
                 }
             }
             catch (Exception)
@@ -147,7 +147,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@ani_Nome", objAnimal.ani_Nome);
                 cmd.Parameters.AddWithValue("@ani_Tipo", objAnimal.ani_Tipo);
                 cmd.Parameters.AddWithValue("@ani_Descricao", objAnimal.ani_Descricao);
-                cmd.Parameters.AddWithValue("@ani_IMG", objAnimal.ani_IMG);
+               // cmd.Parameters.AddWithValue("@ani_IMG", objAnimal.ani_IMG);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception)

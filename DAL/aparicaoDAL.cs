@@ -33,7 +33,6 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@apa_Longitude", objApar.apa_Longitude);
                     cmd.Parameters.AddWithValue("@apa_Data", objApar.apa_Data);
                     cmd.Parameters.AddWithValue("@apa_IMG", objApar.apa_IMG);
-                    cmd.Parameters.AddWithValue("@apa_tipo_animal", objApar.apa_tipo_animal);
                 
 
 
@@ -80,8 +79,7 @@ namespace DAL
                         Apa.apa_Latitude = Convert.ToDecimal(dr["apa_Latitude"]);
                         Apa.apa_Longitude = Convert.ToDecimal(dr["apa_Longitude"]);
                         Apa.apa_Data = Convert.ToDateTime(dr["apa_Data"]).Date;
-                        Apa.apa_IMG = Convert.ToByte(dr["apa.IMG"]);
-                        Apa.apa_tipo_animal = Convert.ToInt32(dr["apa_tipo_animal"]);
+                        //Apa.apa_IMG = Convert.ToByte(dr["apa.IMG"]);
                     }
             }
             catch (Exception)
@@ -118,7 +116,6 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@apa_Longitude", objApar.apa_Longitude);
                     cmd.Parameters.AddWithValue("@apa_Data", objApar.apa_Data);
                     cmd.Parameters.AddWithValue("@apa_IMG", objApar.apa_IMG);
-                    cmd.Parameters.AddWithValue("@apa_tipo_animal", objApar.apa_tipo_animal);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception)
