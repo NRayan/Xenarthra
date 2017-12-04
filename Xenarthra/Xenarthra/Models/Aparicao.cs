@@ -14,7 +14,6 @@ namespace Xenarthra.Models
         public decimal apa_Longitude { get; set; }
         public byte[] apa_IMG { get; set; }
         public int apa_status { get; set; }
-        public int apa_tipo { get; set; }
         public int apa_ID_USU { get; set; }
         public int apa_ID_ANI { get; set; }
     }

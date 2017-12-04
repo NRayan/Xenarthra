@@ -9,19 +9,28 @@ namespace WebAPI.Models
         DALAnimal _DALAnimal = new DALAnimal();
 
         // GET: api/Animal
-        [Route("api/1")]
+        [Route("api/ANI")]
         [HttpGet]
         public IEnumerable<Animal> List()
         {
             return _DALAnimal.ListarAnimais();
         }
 
-        [Route("api/2")]
+        [Route("api/ANI1")]
+        [HttpGet]
+        public IEnumerable<Animal> BuscarporTipo(int tipo)
+        {
+            return _DALAnimal.ListarAnimaisPorTipo(tipo);
+        }
+
+        [Route("api/ANI2")]
         [HttpGet]
         public Animal GetAnimal(int cod)
         {
             return _DALAnimal.BuscarAnimal(cod);
         }
+
+
 
     }
 }
