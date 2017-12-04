@@ -14,17 +14,17 @@ namespace WebAPI.Controllers
        
 
         [Route("api/Usu1")]
-        [HttpPost]
-        public void CadastrarUsu(Usuario _usu)
+        [HttpPost()]
+        public void CadastrarUsu([FromBody] Usuario _usu)
         {
             _DALUsuario.CadastrarUsuario(_usu);
         }
 
         [Route("api/Usu2")]
         [HttpGet]
-        public bool ValidarUsuario(string usuario, string senha)
+        public bool ValidarUsuario(string email, string senha)
         {
-            return _DALUsuario.ValidarUsuario(usuario, senha);
+            return _DALUsuario.ValidarUsuario(email, senha);
         }
 
         [Route("api/Usu3")]

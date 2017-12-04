@@ -32,7 +32,6 @@ namespace WebAPI.Models
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally
@@ -42,7 +41,7 @@ namespace WebAPI.Models
             }
         }
 
-        public bool ValidarUsuario(string usuario, string senha)
+        public bool ValidarUsuario(string email, string senha)
         {
 
             SqlConnection conn = new SqlConnection(connectionStr);
@@ -50,9 +49,9 @@ namespace WebAPI.Models
             try
             {
                 conn.Open();
-                string sql = "select* from USUARIO where usu_Nome = @usuario AND usu_Senha = @senha ";
+                string sql = "select * from USUARIO where usu_Email = @email AND usu_Senha = @senha ";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@senha", senha);
                 SqlDataReader dr = cmd.ExecuteReader();
 

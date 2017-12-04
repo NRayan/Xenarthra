@@ -12,6 +12,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DataService\AparicaoService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataService\AnimalService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataService\UsuarioService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Animal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Aparicao.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Usuario.cs" />
