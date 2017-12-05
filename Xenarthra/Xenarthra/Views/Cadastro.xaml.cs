@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace Xenarthra.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Cadastro : ContentPage
     {
+        string imgUsuario;
         public Cadastro()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace Xenarthra.Views
             {
                 capturarCamera();
             }
-            else if(pickerImagem.SelectedIndex == 1)
+            else if (pickerImagem.SelectedIndex == 1)
             {
                 capturarGaleria();
             }
@@ -121,6 +123,7 @@ namespace Xenarthra.Views
                 }
 
                 img = ReadFully(file.GetStream());
+                imgUsuario = ByteArrayToStr(img);
                 imgPerfil.Source = ImageSource.FromStream(() => file.GetStream());
             }
 
@@ -132,28 +135,69 @@ namespace Xenarthra.Views
 
         private void btnConfirmar_Clicked(object sender, EventArgs e)
         {
-            Usuario usu = new Usuario();           
+            if (imgUsuario != null)
+            {
+                if (txtEmail.Text != null & txtNome.Text != null & txtSenha.Text != null)
+                {
+                    Usuario usu = new Usuario();
+                    usu.usu_Nome = txtNome.Text;
+                    usu.usu_Email = txtEmail.Text;
+                    usu.usu_Senha = hashmd5(txtSenha.Text);
+                    usu.usu_ADM = false;
+                    //usu.usu_IMG = imgUsuario;
+                    CadastrarUsuario(usu);
+                }
+                else
+                    DisplayAlert("Erro", "Preencha Todos os Campos", "OK");
 
-            usu.usu_Nome = txtNome.Text;
-            usu.usu_Email = txtEmail.Text;
-            usu.usu_Senha = txtSenha.Text;
-            usu.usu_ADM = false;
-            // usu.usu_IMG = ;
 
-            CadastrarUsuario(usu);
+
+
+            }
+            else
+                DisplayAlert("Erro", "Insira uma Imagem de Perfil", "OK");
         }
+
+        private string hashmd5(string str)
+        {
+            // step 1, calculate MD5 hash from input
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(str);
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+
+            // step 2, convert byte array to hex string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+
+        private string ByteArrayToStr(Byte[] img) // Byte[] -> String
+        {
+            return Encoding.ASCII.GetString(img);
+        }
+
+        private Byte[] StrToByteArray(string str)// String -> Byte[]
+        {
+            return Encoding.ASCII.GetBytes(str);
+        }
+
+
 
         private async void CadastrarUsuario(Usuario usu)
         {
             UsuarioService usuService = new UsuarioService();
 
-            if (await usuService.CadastrarUsuario (usu) == true)
+            if (await usuService.CadastrarUsuario(usu) == true)
             {
                 await DisplayAlert(" ", "Usuário Cadastrado com Sucesso", "Ok");
                 txtEmail.Text = string.Empty;
                 txtNome.Text = string.Empty;
                 txtSenha.Text = string.Empty;
-            }                
+            }
             else
                 await DisplayAlert("Erro", "Erro ao cadastrar Usuário", "Ok");
         }

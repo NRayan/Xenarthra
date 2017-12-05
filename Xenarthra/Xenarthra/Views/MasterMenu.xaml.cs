@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xenarthra.Models;
 
 namespace Xenarthra.Views
 {
@@ -16,15 +17,17 @@ namespace Xenarthra.Views
     public partial class MasterMenu : ContentPage
     {
         public MasterDetailPage mdpView { get; set; }
-        public MasterMenu()
-        {
-            InitializeComponent();
-        }
+        public int _usuLocal { get; set; }
 
-        public MasterMenu(MasterDetailPage objMDP)
+        public MasterMenu(MasterDetailPage objMDP,Usuario usuLocal )
         {
-            mdpView = objMDP;
+            mdpView = objMDP;          
             InitializeComponent();
+            lblUsuario.Text = usuLocal.usu_Nome;
+
+            _usuLocal = usuLocal.usu_ID;    
+           // imgPefil.Source= ImageSource.FromStream(() => new MemoryStream( StrToByteArray(usuLocal.usu_IMG))); // Conversor Byte[] -> ImagemSource
+            imgPefil.Source = "perfil.png";
         }
 
         private void vcMapa_Tapped(object sender, EventArgs e)
@@ -41,7 +44,7 @@ namespace Xenarthra.Views
 
         private void vcImagem_Tapped(object sender, EventArgs e)
         {
-            mdpView.Detail = new NavigationPage(new AparicaoView());
+            mdpView.Detail = new NavigationPage(new AparicaoView(_usuLocal));
             mdpView.IsPresented = false;
         }
 
@@ -49,6 +52,16 @@ namespace Xenarthra.Views
         {
             mdpView.Detail = new NavigationPage(new Informacao());
             mdpView.IsPresented = false;
+        }
+
+        private string ByteArrayToStr(Byte[] img) // Byte[] -> String
+        {
+            return Encoding.ASCII.GetString(img);
+        }
+
+        private Byte[] StrToByteArray(string str)// String -> Byte[]
+        {
+            return Encoding.ASCII.GetBytes(str);
         }
     }
 }

@@ -53,5 +53,21 @@ namespace Xenarthra.DataService
             }
         }
 
+        public async Task<Usuario> BuscarUsuarioporEmail(string email)
+        {
+            try
+            {
+                string url = "http://xenarthra.somee.com/api/USU3?email=" + email.ToString();
+                var resposta = await client.GetStringAsync(url);
+                var endr = JsonConvert.DeserializeObject<Usuario>(resposta);
+
+                return endr;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

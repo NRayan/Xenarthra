@@ -29,7 +29,7 @@ namespace WebAPI.Models
                     on ANIMAL.ani_ID = a.apa_ID_ANI
                     inner join USUARIO
                     on USUARIO.usu_ID = a.apa_ID_USU
-                    Where ani_Tipo = @tipo and a.apa_status=1");
+                    Where ani_Tipo = @tipo and a.apa_status=2");
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@tipo", tipo);
@@ -86,7 +86,7 @@ namespace WebAPI.Models
                 on ANIMAL.ani_ID = a.apa_ID_ANI
 				inner join USUARIO
 				on USUARIO.usu_ID = a.apa_ID_USU
-                Where ani_Tipo = @tipo and a.apa_status=1");
+                Where ani_Tipo = @tipo and a.apa_status=2");
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@tipo", tipo);
@@ -179,13 +179,13 @@ namespace WebAPI.Models
             {
                 conn.Open();
 
-                string sql = "insert into aparicao Values(@comentario,@comentarioADM,@Lati,@Longi,@Data,@img,0,@id_usu,@id_ani)";
+                string sql = "insert into aparicao Values(@comentario,null,@Lati,@Longi,@Data,null,1,@id_usu,@id_ani)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@comentario", apar.apa_Comentario);
-                cmd.Parameters.AddWithValue("@comentarioADM", apar.apa_ComentarioADM);
                 cmd.Parameters.AddWithValue("@Lati", apar.apa_Latitude);
                 cmd.Parameters.AddWithValue("@Longi", apar.apa_Longitude);
-                cmd.Parameters.AddWithValue("@img", apar.apa_IMG);
+                cmd.Parameters.AddWithValue("@Data", apar.apa_Data.ToString());
+                //cmd.Parameters.AddWithValue("@img", apar.apa_IMG);
                 cmd.Parameters.AddWithValue("@id_usu", apar.apa_ID_USU);
                 cmd.Parameters.AddWithValue("@id_ani", apar.apa_ID_ANI);
 

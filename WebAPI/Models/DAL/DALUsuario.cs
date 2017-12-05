@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace WebAPI.Models
 {
@@ -20,7 +21,7 @@ namespace WebAPI.Models
             {
                 conn.Open();
 
-                string sql = "insert into USUARIO Values(@nome,0,@email,@senha,0)";
+                string sql = "insert into USUARIO Values(@nome,null,@email,@senha,0)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@nome", _usu.usu_Nome);
                // cmd.Parameters.AddWithValue("@img", _usu.usu_IMG);
@@ -90,7 +91,7 @@ namespace WebAPI.Models
                 {
                     _usu.usu_ID = Convert.ToInt32(dr["usu_ID"]);
                     _usu.usu_Nome = dr["usu_Nome"].ToString();
-                    //_usu._usu_IMG = (byte[])dr["_usu_IMG"];
+                    //_usu.usu_IMG = dr["usu_IMG"].ToString();
                     _usu.usu_Email = dr["usu_Email"].ToString();
                     _usu.usu_Senha = dr["usu_Senha"].ToString();
                     _usu.usu_ADM = Convert.ToBoolean(dr["usu_ADM"]);
@@ -108,6 +109,16 @@ namespace WebAPI.Models
                     conn.Close();
             }
             return _usu;
+        }
+
+        private string ByteArrayToStr(Byte[] img) // Byte[] -> String
+        {
+            return Encoding.ASCII.GetString(img);
+        }
+
+        private Byte[] StrToByteArray(string str)// String -> Byte[]
+        {
+            return Encoding.ASCII.GetBytes(str);
         }
     }
 }

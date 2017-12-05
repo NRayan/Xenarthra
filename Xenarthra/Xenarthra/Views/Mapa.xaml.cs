@@ -73,7 +73,7 @@ namespace Xenarthra.Views
                 };
             }
             
-            MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-19.834229, -73.373129), Distance.FromMiles(2500.0)));
+            MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-19.500000, -60.373129), Distance.FromMiles(2500.0)));
 
         }
 

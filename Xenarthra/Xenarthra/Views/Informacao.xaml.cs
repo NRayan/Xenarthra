@@ -16,5 +16,15 @@ namespace Xenarthra.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void txCellSobre_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new InformacaoDetalhada(1));
+        }
+
+        private void txCellXenarthras_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new InformacaoDetalhada(1));
+        }
+    }
 }

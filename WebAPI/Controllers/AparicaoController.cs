@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
 
         [Route("api/APA4")]
         [HttpPost]
-        public void CadastrarAparicao(Aparicao apar)
+        public void CadastrarAparicao([FromBody]Aparicao apar)
         {
             _DALAparicao.CadastrarAparicao(apar);
         }

@@ -10,8 +10,8 @@
         <TableView Intent="Menu" RowHeight="56">
             <TableRoot>
                 <TableSection>
-                    <TextCell Text="Sobre o aplicativo" TextColor="#E6E6E6"/>
-                    <TextCell Text="Superordem Xenarthra" TextColor="#E6E6E6"/>
+                    <TextCell x:Name="txCellSobre" Tapped="txCellSobre_Tapped" Text="Sobre o aplicativo" TextColor="#E6E6E6"/>
+                    <TextCell x:Name="txCellXenarthras" Tapped="txCellXenarthras_Tapped" Text="Superordem Xenarthra" TextColor="#E6E6E6"/>
                 </TableSection>
             </TableRoot>
         </TableView>

@@ -15,7 +15,7 @@ namespace Models
         public int apa_status{ get; set; }
         public Decimal apa_Latitude { get; set; }
         public Decimal apa_Longitude { get; set; }
-        public Byte apa_IMG { get; set; }
+        //public Byte apa_IMG { get; set; }
         public int apa_ID_USU { get; set; }
         public int apa_ID_ANI { get; set; }
     }
