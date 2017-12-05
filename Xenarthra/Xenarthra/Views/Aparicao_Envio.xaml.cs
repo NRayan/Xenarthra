@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xenarthra.DataService;
+using Xenarthra.Models;
 
 namespace Xenarthra.Views
 {
@@ -23,6 +25,26 @@ namespace Xenarthra.Views
         {
             InitializeComponent();
             imgAparicao.Source = img;
+        }
+
+        private async void btnSend_Clicked(object sender, EventArgs e)
+        {
+            AparicaoService apaService = new AparicaoService();
+            Aparicao apa = new Aparicao();
+
+            apa.apa_Comentario = txtComentario.Text;
+            apa.apa_Data = txtData.Date;
+            apa.apa_Latitude = Convert.ToDecimal(txtLatitude.Text);
+            apa.apa_Longitude = Convert.ToDecimal(txtLongitude.Text);
+
+            if (await apaService.CadastrarAparicao(apa) == true)
+            {
+                await DisplayAlert("", "Aparicao Enviada com Sucesso", "OK");
+                await this.Navigation.PopToRootAsync();
+            }else
+            {
+                await DisplayAlert("Erro", "Erro ao Enviar Aparicao", "OK");
+            }
         }
     }
 }

@@ -22,7 +22,7 @@
                             </ff:CachedImage.Transformations>
                         </ff:CachedImage>
 
-                        <Label Text="Norton Rayan Meira" TextColor="White" Font="18" Margin="10,25,0,0"/>
+                        <Label x:Name="lblNomeUsuario" Text="" TextColor="White" Font="18" Margin="10,25,0,0"/>
 
                     </StackLayout>
 
@@ -35,10 +35,19 @@
                 </ff:CachedImage>
 
                 <StackLayout Margin="15,5">
-                    
-                
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Data: " TextColor="#A7A7A7" FontSize="18"/>
+                        <Label x:Name="lblData" Text="" TextColor="#C9C9C9" FontSize="18" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="0,0,0,15">
+                        <Label Text="Animal: " TextColor="#A7A7A7" FontSize="18"/>
+                        <Label x:Name="lblAnimal" Text="" TextColor="#C9C9C9" FontSize="18"/>
+                    </StackLayout>
+
                 <Label Text="Comentário: " TextColor="#A7A7A7"/>
-                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." FontSize="18" TextColor="#C9C9C9"/>
+                    <Label x:Name="lblComentario" Text="" FontSize="18" TextColor="#C9C9C9"/>
                 <Label Text=" "/>
 
                 </StackLayout>
@@ -59,13 +68,13 @@
 
                 <StackLayout Orientation="Horizontal" Spacing="5" Margin="30,15">
 
-                    <ff:CachedImage Source="profile.png" HeightRequest="76" WidthRequest="76" Margin="0">
+                    <ff:CachedImage Source="helio.jpg" HeightRequest="76" WidthRequest="76" Margin="0">
                         <ff:CachedImage.Transformations>
                             <ffTransformation:RoundedTransformation Radius="300"/>
                         </ff:CachedImage.Transformations>
                     </ff:CachedImage>
 
-                    <Label Text="Administrador" TextColor="White" Font="18" Margin="10,25,0,0"/>
+                    <Label Text="Hélio Pereira" TextColor="White" Font="18" Margin="10,25,0,0"/>
 
                 </StackLayout>
             </StackLayout>
@@ -73,8 +82,8 @@
             <StackLayout Margin="15">
 
 
-                    <Label Text="Comentário: " TextColor="#A7A7A7"/>
-                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." FontSize="18" TextColor="#C9C9C9"/>
+                    <Label Text="Comentário do Administrador: " TextColor="#A7A7A7"/>
+                    <Label x:Name="lblComentarioADM" Text="" FontSize="18" TextColor="#C9C9C9"/>
                     <Label Text=" "/>
 
                 </StackLayout>

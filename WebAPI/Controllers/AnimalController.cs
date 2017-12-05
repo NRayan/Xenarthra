@@ -25,9 +25,9 @@ namespace WebAPI.Models
 
         [Route("api/ANI2")]
         [HttpGet]
-        public Animal GetAnimal(int cod)
+        public Animal BuscarAnimal(int id)
         {
-            return _DALAnimal.BuscarAnimal(cod);
+            return _DALAnimal.BuscarAnimal(id);
         }
 
 

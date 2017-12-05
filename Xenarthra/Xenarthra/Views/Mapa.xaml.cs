@@ -47,7 +47,7 @@ namespace Xenarthra.Views
                 {
                     Type = PinType.Place,
                     Position = new Position(Convert.ToDouble(_apar.apa_Latitude), Convert.ToDouble(_apar.apa_Longitude)),
-                    Label = "Usuario: " + _apar.usu_Nome + " #" + _apar.apa_ID.ToString(),
+                    Label = ("#"+_apar.apa_ID.ToString()+"  Usuario: " + _apar.usu_Nome),
                     Address = "Animal: " + _apar.ani_Nome
                 };
 
@@ -62,9 +62,14 @@ namespace Xenarthra.Views
 
             foreach (Pin pino in MapadeArea.Pins)
             {
+                int apa_id;
+                string pino_label = pino.Label;               
+                string apa_idb = pino_label.Substring(0, pino_label.IndexOf(' '));                
+                apa_id = Convert.ToInt32(apa_idb.Substring(1));
+
                 pino.Clicked += (sender, args) =>
                 {
-                    Navigation.PushAsync(new AparicaoDetalhado());
+                    Navigation.PushAsync(new AparicaoDetalhado(apa_id));
                 };
             }
             

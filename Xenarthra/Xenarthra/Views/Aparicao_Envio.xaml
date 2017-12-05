@@ -11,7 +11,7 @@
 
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="btnSend" Icon="send.png" Order="Primary"/>
+        <ToolbarItem x:Name="btnSend" Clicked="btnSend_Clicked" Icon="send.png" Order="Primary"/>
     </ContentPage.ToolbarItems>
 
     <ScrollView >
@@ -23,19 +23,19 @@
                 </ff:CachedImage.Transformations>
             </ff:CachedImage>
 
-            <Entry Placeholder="Latitude" Margin="30,0" Keyboard="Telephone"/>
-            <Entry Placeholder="Longitude" Margin="30,0" Keyboard="Telephone"/>
+            <Entry x:Name="txtLatitude" Placeholder="Latitude" Margin="30,0" Keyboard="Telephone"/>
+            <Entry x:Name="txtLongitude" Placeholder="Longitude" Margin="30,0" Keyboard="Telephone"/>
             <Label Text="OU" TextColor="White" HorizontalOptions="Center"/>
             <controls:ImageButton Text=" Capturar Coordenadas" Font="14" TextColor="White" Orientation="ImageToLeft" Source="imgLocal.png"  ImageHeightRequest="64" ImageWidthRequest="64" BackgroundColor="#0D840D" WidthRequest="230" HorizontalOptions="Center"/>
             
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
                 <Label Text="Data: " Font="18" TextColor="White" Margin="0,10,0,0"/>
-                <DatePicker TextColor="#DADADA"/>
+                <DatePicker x:Name="txtData" TextColor="#DADADA"/>
             </StackLayout>
 
             <StackLayout Margin="10">
             <Label Text="Mensagem: " TextColor="White" Font="16"/>
-                <controls:ExtendedEditor HeightRequest="128" BackgroundColor="#0D840D" TextColor="#DADADA" Keyboard="Chat"/>
+                <controls:ExtendedEditor x:Name="txtComentario" HeightRequest="128" BackgroundColor="#0D840D" TextColor="#DADADA" Keyboard="Chat"/>
             <Label Text="." TextColor="Transparent"/>
             </StackLayout>
             

@@ -120,16 +120,23 @@ namespace WebAPI.Models
 
             return _Pinos;
         }
-        public Aparicao BuscarAparicao(int cod)
+        public Aparicao_Extended BuscarAparicao(int cod)
         {
-            Aparicao _apar = new Aparicao();
+            Aparicao_Extended _apar = new Aparicao_Extended();
 
             SqlConnection conn = new SqlConnection(connectionStr);
 
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from APARICAO where apa_ID=@cod", conn);
+                SqlCommand cmd = new SqlCommand(@"select a.apa_ID, a.apa_Comentario, a.apa_ComentarioADM, a.apa_Data,a.apa_IMG,USUARIO.usu_Nome,USUARIO.usu_IMG,ANIMAL.ani_Nome
+                    from APARICAO as a
+                    inner join ANIMAL
+                    on ANIMAL.ani_ID = a.apa_ID_ANI
+                    inner join USUARIO
+                    on USUARIO.usu_ID = a.apa_ID_USU
+                    Where apa_ID=@cod", conn);
+
                 cmd.Parameters.AddWithValue("@cod", cod);
                 SqlDataReader dr = cmd.ExecuteReader();
 
@@ -141,15 +148,13 @@ namespace WebAPI.Models
                         _apar.apa_Comentario = dr["apa_Comentario"].ToString();
                         _apar.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
                         _apar.apa_Data = Convert.ToDateTime(dr["apa_Data"]);
-                        _apar.apa_status = Convert.ToInt32(dr["apa_status"]);
-                        _apar.apa_Latitude = Convert.ToDecimal(dr["apa_Latitude"]);
-                        _apar.apa_Longitude = Convert.ToDecimal(dr["apa_Latitude"]);
                         //_apar.ani_IMG = (byte[])dr["ani_IMG"];
-                        _apar.apa_ID_USU = Convert.ToInt32(dr["apa_ID_USU"]);
-                        _apar.apa_ID_ANI = Convert.ToInt32(dr["apa_ID_ANI"]);
+                        //_apar.usu_IMG = (Byte[])dr["ani_IMG"];
+                        _apar.usu_Nome= dr["usu_Nome"].ToString();
+                        _apar.ani_Nome = dr["ani_Nome"].ToString();
+
                     }
                 }
-
             }
 
             catch (Exception)
@@ -180,7 +185,7 @@ namespace WebAPI.Models
                 cmd.Parameters.AddWithValue("@comentarioADM", apar.apa_ComentarioADM);
                 cmd.Parameters.AddWithValue("@Lati", apar.apa_Latitude);
                 cmd.Parameters.AddWithValue("@Longi", apar.apa_Longitude);
-                // cmd.Parameters.AddWithValue("@img", _usu.usu_IMG);
+                cmd.Parameters.AddWithValue("@img", apar.apa_IMG);
                 cmd.Parameters.AddWithValue("@id_usu", apar.apa_ID_USU);
                 cmd.Parameters.AddWithValue("@id_ani", apar.apa_ID_ANI);
 

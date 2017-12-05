@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
 
         [Route("api/APA2")]
         [HttpGet]
-        public Aparicao BuscarAparicao(int id)
+        public Aparicao_Extended BuscarAparicao(int id)
         {
             return _DALAparicao.BuscarAparicao(id);
         }
