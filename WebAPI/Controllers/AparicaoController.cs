@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Http;
 using Models;
 using WebAPI.Models;
+using Xenarthra.Models.extra;
+using WebAPI.Models.extra;
 
 namespace WebAPI.Controllers
 {
@@ -14,7 +16,7 @@ namespace WebAPI.Controllers
 
         [Route("api/APA1")]
         [HttpGet]
-        public IEnumerable<Aparicao> ListarAparicoes(int tipo)
+        public IEnumerable<Aparicao_Extended> ListarAparicoes(int tipo)
         {
            return _DALAparicao.ListarAparicoesPorTipoAni(tipo);
         }
@@ -27,10 +29,21 @@ namespace WebAPI.Controllers
         }
 
         [Route("api/APA3")]
+        [HttpGet]
+        public IEnumerable<Pino_Mapa> ListarPinos(int tipo)
+        {
+            return _DALAparicao.ListarPinosPorTipoAni(tipo);
+        }
+
+
+
+        [Route("api/APA4")]
         [HttpPost]
         public void CadastrarAparicao(Aparicao apar)
         {
             _DALAparicao.CadastrarAparicao(apar);
         }
+
+       
     }
 }

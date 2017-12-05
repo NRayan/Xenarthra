@@ -12,7 +12,7 @@ namespace Xenarthra.Models
         public DateTime apa_Data { get; set; }
         public decimal apa_Latitude { get; set; }
         public decimal apa_Longitude { get; set; }
-        public byte[] apa_IMG { get; set; }
+        //public Byte[] apa_IMG { get; set; }
         public int apa_status { get; set; }
         public int apa_ID_USU { get; set; }
         public int apa_ID_ANI { get; set; }

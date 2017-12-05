@@ -6,15 +6,22 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using Xenarthra.DataService;
+using Xenarthra.Models.extra;
+using Xenarthra.Models;
+
 namespace Xenarthra.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Mapa : ContentPage
-	{
-        public Mapa ()
-		{            
-            InitializeComponent ();
-            mapearPinos();                 
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Mapa : ContentPage
+    {
+
+        List<Pino_Mapa> _pinos = new List<Pino_Mapa>();
+
+        public Mapa()
+        {
+            InitializeComponent();
+            BuscarPinos(1);
         }
 
         private void btnFrame_Tapped(object sender, EventArgs e)
@@ -23,52 +30,31 @@ namespace Xenarthra.Views
             btnAnteater.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
             btnArmadillo.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
             btnSloth.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
-            btnFrame.BackgroundColor = Color.FromRgb(80, 185, 72);            
-        }       
+            btnFrame.BackgroundColor = Color.FromRgb(80, 185, 72);
+
+            BuscarPinos(Convert.ToInt32(btnFrame.StyleId));
+        }
 
         private void mapearPinos()
         {
             //Lista de Pinos que serão adicionados no mapa
             var pinos = new List<Pin>();
 
-            //Pino Basico
-            var pin = new Pin
-            {                
-                Type = PinType.Place,
-                Position = new Position(-23.569269, -47.460850),
-                Label = "Norton Rayan Meira",
-                Address = "animal: Bicho-Preguiça Real"                
-            };
-
-            var pin2 = new Pin
+            //Criando Pinos Através das Aparicoes
+            foreach (Pino_Mapa _apar in _pinos)
             {
-                Type = PinType.Place,
-                Position = new Position(-22.569269, -45.460850),
-                Label = "Joaozin",
-                Address = "animal: Tatu Tal"
-            };
+                Pin Pino = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Position(Convert.ToDouble(_apar.apa_Latitude), Convert.ToDouble(_apar.apa_Longitude)),
+                    Label = "Usuario: " + _apar.usu_Nome + " #" + _apar.apa_ID.ToString(),
+                    Address = "Animal: " + _apar.ani_Nome
+                };
 
-            var pin3 = new Pin
-            {
-                Type = PinType.Place,
-                Position = new Position(-23.569269, -44.460850),
-                Label = "maria dolores da silva silverio paulestina",
-                Address = "animal: Tamanduá´doidao"
-            };
+                pinos.Add(Pino);
+            }
 
-            var pin4 = new Pin
-            {
-                Type = PinType.Place,
-                Position = new Position(-24.569269, -47.460850),
-                Label = "Joaozin",
-                Address = "animal: Tatu Tal"
-            };
-
-            pinos.Add(pin);
-            pinos.Add(pin2);
-            pinos.Add(pin3);
-            pinos.Add(pin4);                     
-
+            MapadeArea.Pins.Clear();
             foreach (Pin pino in pinos)
             {
                 MapadeArea.Pins.Add(pino);
@@ -81,16 +67,16 @@ namespace Xenarthra.Views
                     Navigation.PushAsync(new AparicaoDetalhado());
                 };
             }
-
-            //Pino em Area -- Adicionando pino de area
-            var position = new Position(-23.569269, -47.460850);
-
-           // MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(10.0)));
-
-           
+            
+            MapadeArea.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-19.834229, -73.373129), Distance.FromMiles(2500.0)));
 
         }
 
-       
+        private async void BuscarPinos(int tipo)
+        {
+            AparicaoService apaService = new AparicaoService();
+            _pinos = await apaService.BuscarPinos(tipo);
+            mapearPinos();
+        }
     }
 }

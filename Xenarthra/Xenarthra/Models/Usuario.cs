@@ -8,7 +8,7 @@ namespace Xenarthra.Models
     {
         public int usu_ID { get; set; }
         public string usu_Nome { get; set; }
-        public byte[] usu_IMG { get; set; }
+        //public Byte[] usu_IMG { get; set; }
         public string usu_Email { get; set; }
         public string usu_Senha { get; set; }
         public bool usu_ADM { get; set; }

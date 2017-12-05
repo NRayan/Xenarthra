@@ -72,7 +72,7 @@ namespace WebAPI.Models
             }
         }
 
-        public Usuario BuscarUsuarioporNome(string nome)
+        public Usuario BuscarUsuarioporEmail(string email)
         {
             Usuario _usu = new Usuario();
             SqlConnection conn = new SqlConnection(connectionStr);
@@ -80,9 +80,9 @@ namespace WebAPI.Models
             try
             {
                 conn.Open();
-                string sql = "select * from USUARIO where usu_Nome = @nome";
+                string sql = "select * from USUARIO where usu_Email = @email";
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@email", email);
 
                 SqlDataReader dr = cmd.ExecuteReader();
 

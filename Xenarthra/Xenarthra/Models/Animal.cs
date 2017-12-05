@@ -10,8 +10,8 @@ namespace Xenarthra.Models
         public string ani_NomeCient { get; set; }
         public string ani_Nome { get; set; }
         public string ani_Descricao { get; set; }
-        public byte[] ani_IMG { get; set; }
-        
+        //public Byte[] ani_IMG { get; set; }
+
 
         public List<Animal> ListarAnimais()
         {

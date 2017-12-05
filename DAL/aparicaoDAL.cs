@@ -84,7 +84,7 @@ namespace DAL
                         An_AP = new RetCatalogo();
                         An_AP.AN.ani_Nome = dr["ani_Nome"].ToString();
                         An_AP.AP.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
-                        An_AP.AP.apa_IMG = (byte[])dr["apa_IMG"];
+                        //An_AP.AP.apa_IMG = (byte[])dr["apa_IMG"];
 
                         lista.Add(An_AP);
                     }
@@ -132,7 +132,7 @@ namespace DAL
                         Apari.apa_Comentario = dr["apa_Comentario"].ToString();
                         Apari.apa_Latitude = Convert.ToDecimal(dr["apa_Latitude"]);
                         Apari.apa_Longitude = Convert.ToDecimal(dr["apa_Longitude"]);
-                        Apari.apa_IMG = (byte[])dr["apa_IMG"];
+                        //Apari.apa_IMG = (byte[])dr["apa_IMG"];
 
                         lista.Add(Apari);
                     }
@@ -174,11 +174,11 @@ namespace DAL
                         Apa.apa_ID_USU = Convert.ToInt32(dr["apa_ID_USU"]);
                         Apa.apa_Comentario = dr["apa_Comentario"].ToString();
                         Apa.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
-                        Apa.apa_status = Convert.ToInt32(dr["apa_status"]);
+                        //Apa.apa_status = Convert.ToInt32(dr["apa_status"]);
                         Apa.apa_Latitude = Convert.ToDecimal(dr["apa_Latitude"]);
                         Apa.apa_Longitude = Convert.ToDecimal(dr["apa_Longitude"]);
                         Apa.apa_Data = Convert.ToDateTime(dr["apa_Data"]).Date;
-                        Apa.apa_IMG = (byte[])dr["apa_IMG"];
+                        //Apa.apa_IMG = (byte[])dr["apa_IMG"];
                         Apa.apa_tipo_animal = Convert.ToInt32(dr["apa_tipo_animal"]);
                     }
             }

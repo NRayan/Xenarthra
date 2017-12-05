@@ -41,7 +41,7 @@ namespace Xenarthra.Views
 
         private void vcImagem_Tapped(object sender, EventArgs e)
         {
-            mdpView.Detail = new NavigationPage(new Aparicao());
+            mdpView.Detail = new NavigationPage(new AparicaoView());
             mdpView.IsPresented = false;
         }
 
