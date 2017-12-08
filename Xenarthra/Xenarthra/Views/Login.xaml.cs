@@ -22,7 +22,10 @@ namespace Xenarthra
 
         private void btnEntrar_Clicked(object sender, EventArgs e)
         {
-            Logar(txtEmail.Text, hashmd5(txtSenha.Text));
+            if (txtEmail.Text != string.Empty && txtSenha.Text != string.Empty)
+                Logar(txtEmail.Text, hashmd5(txtSenha.Text));
+            else
+                DisplayAlert("Atenção", "Preencha todos os Campos", "OK");
         }
 
         private void btnRegistrar_Clicked(object sender, EventArgs e)

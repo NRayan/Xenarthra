@@ -10,7 +10,7 @@ namespace Models
     {
         public int usu_ID { get; set; }
         public string usu_Nome { get; set; }
-        //public string usu_IMG { get; set; }  // Json não suporta byte[], é necessário transformar o byte[] em string
+        public string usu_IMG { get; set; }  // Json não suporta byte[], é necessário transformar o byte[] em string
         public bool usu_ADM { get; set; }
         public string  usu_Email { get; set; }
         public string  usu_Senha { get; set; }

@@ -114,17 +114,20 @@ namespace Xenarthra.Views
 
                 var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions
                 {
-                    PhotoSize = PhotoSize.Medium,
+                    PhotoSize = PhotoSize.Small,
+                    CompressionQuality = 50
                 });
 
                 if (file == null)
                 {
                     return;
                 }
+                imgPerfil.Source = ImageSource.FromStream(() => file.GetStream());
+
 
                 img = ReadFully(file.GetStream());
-                imgUsuario = ByteArrayToStr(img);
-                imgPerfil.Source = ImageSource.FromStream(() => file.GetStream());
+                imgUsuario = ByteArrayToString(img);
+
             }
 
             catch (Exception ex)
@@ -144,18 +147,31 @@ namespace Xenarthra.Views
                     usu.usu_Email = txtEmail.Text;
                     usu.usu_Senha = hashmd5(txtSenha.Text);
                     usu.usu_ADM = false;
-                    //usu.usu_IMG = imgUsuario;
+                    usu.usu_IMG = imgUsuario;
                     CadastrarUsuario(usu);
                 }
                 else
-                    DisplayAlert("Erro", "Preencha Todos os Campos", "OK");
-
-
-
-
+                    DisplayAlert("Atenção", "Preencha Todos os Campos", "OK");
             }
             else
-                DisplayAlert("Erro", "Insira uma Imagem de Perfil", "OK");
+                DisplayAlert("Atenção", "Insira uma Imagem de Perfil", "OK");
+        }
+
+        private async void CadastrarUsuario(Usuario usu)
+        {
+            UsuarioService usuService = new UsuarioService();
+
+            if (await usuService.CadastrarUsuario(usu) == true)
+            {
+                await DisplayAlert(" ", "Usuário Cadastrado com Sucesso", "Ok");
+                txtEmail.Text = string.Empty;
+                txtNome.Text = string.Empty;
+                txtSenha.Text = string.Empty;
+                imgPerfil.Source = "profile.png";
+                imgUsuario = string.Empty;
+            }
+            else
+                await DisplayAlert("Erro", "Erro ao cadastrar Usuário", "Ok");
         }
 
         private string hashmd5(string str)
@@ -175,32 +191,23 @@ namespace Xenarthra.Views
             return sb.ToString();
         }
 
-        private string ByteArrayToStr(Byte[] img) // Byte[] -> String
+        public static string ByteArrayToString(byte[] ba) //ByteArray para String Hexadecimal
         {
-            return Encoding.ASCII.GetString(img);
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("{0:x2}", b);
+            return hex.ToString();
         }
 
-        private Byte[] StrToByteArray(string str)// String -> Byte[]
+        public static byte[] StringToByteArray(String hex)//String Hexadecimal para ByteArray 
         {
-            return Encoding.ASCII.GetBytes(str);
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            return bytes;
         }
 
-
-
-        private async void CadastrarUsuario(Usuario usu)
-        {
-            UsuarioService usuService = new UsuarioService();
-
-            if (await usuService.CadastrarUsuario(usu) == true)
-            {
-                await DisplayAlert(" ", "Usuário Cadastrado com Sucesso", "Ok");
-                txtEmail.Text = string.Empty;
-                txtNome.Text = string.Empty;
-                txtSenha.Text = string.Empty;
-            }
-            else
-                await DisplayAlert("Erro", "Erro ao cadastrar Usuário", "Ok");
-        }
 
     }
 }

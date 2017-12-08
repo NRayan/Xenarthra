@@ -11,20 +11,20 @@ namespace WebAPI.Models
 {
     public class DALUsuario
     {
-        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServer"].ConnectionString;
+        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServerLocal"].ConnectionString;
 
         public void CadastrarUsuario(Usuario _usu)
-        {        
-        SqlConnection conn = new SqlConnection(connectionStr);
+        {
+            SqlConnection conn = new SqlConnection(connectionStr);
 
             try
             {
                 conn.Open();
 
-                string sql = "insert into USUARIO Values(@nome,null,@email,@senha,0)";
+                string sql = "insert into USUARIO Values(@nome,@img,@email,@senha,0)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@nome", _usu.usu_Nome);
-               // cmd.Parameters.AddWithValue("@img", _usu.usu_IMG);
+                cmd.Parameters.AddWithValue("@img", StringToByteArray(_usu.usu_IMG));
                 cmd.Parameters.AddWithValue("@email", _usu.usu_Email);
                 cmd.Parameters.AddWithValue("@senha", _usu.usu_Senha);
 
@@ -91,7 +91,7 @@ namespace WebAPI.Models
                 {
                     _usu.usu_ID = Convert.ToInt32(dr["usu_ID"]);
                     _usu.usu_Nome = dr["usu_Nome"].ToString();
-                    //_usu.usu_IMG = dr["usu_IMG"].ToString();
+                    _usu.usu_IMG = ByteArrayToString((byte[])dr["usu_IMG"]);
                     _usu.usu_Email = dr["usu_Email"].ToString();
                     _usu.usu_Senha = dr["usu_Senha"].ToString();
                     _usu.usu_ADM = Convert.ToBoolean(dr["usu_ADM"]);
@@ -111,14 +111,21 @@ namespace WebAPI.Models
             return _usu;
         }
 
-        private string ByteArrayToStr(Byte[] img) // Byte[] -> String
+        public static string ByteArrayToString(byte[] ba) //ByteArray para String Hexadecimal
         {
-            return Encoding.ASCII.GetString(img);
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("{0:x2}", b);
+            return hex.ToString();
         }
 
-        private Byte[] StrToByteArray(string str)// String -> Byte[]
+        public static byte[] StringToByteArray(String hex)//String Hexadecimal para ByteArray 
         {
-            return Encoding.ASCII.GetBytes(str);
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            return bytes;
         }
     }
 }

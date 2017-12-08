@@ -17,17 +17,23 @@ namespace Xenarthra.Views
     public partial class MasterMenu : ContentPage
     {
         public MasterDetailPage mdpView { get; set; }
+
         public int _usuLocal { get; set; }
+        public ImageSource imgSource { get; set; }
+
+
+        private Byte[] imgConvertida;
+       
 
         public MasterMenu(MasterDetailPage objMDP,Usuario usuLocal )
         {
             mdpView = objMDP;          
             InitializeComponent();
             lblUsuario.Text = usuLocal.usu_Nome;
+            _usuLocal = usuLocal.usu_ID;
 
-            _usuLocal = usuLocal.usu_ID;    
-           // imgPefil.Source= ImageSource.FromStream(() => new MemoryStream( StrToByteArray(usuLocal.usu_IMG))); // Conversor Byte[] -> ImagemSource
-            imgPefil.Source = "perfil.png";
+            imgConvertida = (StringToByteArray(usuLocal.usu_IMG));
+            imgPefil.Source = ImageSource.FromStream(() => new MemoryStream(imgConvertida));
         }
 
         private void vcMapa_Tapped(object sender, EventArgs e)
@@ -54,14 +60,22 @@ namespace Xenarthra.Views
             mdpView.IsPresented = false;
         }
 
-        private string ByteArrayToStr(Byte[] img) // Byte[] -> String
+        public static string ByteArrayToString(byte[] ba) //ByteArray para String Hexadecimal
         {
-            return Encoding.ASCII.GetString(img);
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("{0:x2}", b);
+            return hex.ToString();
         }
 
-        private Byte[] StrToByteArray(string str)// String -> Byte[]
+        public static byte[] StringToByteArray(String hex)//String Hexadecimal para ByteArray 
         {
-            return Encoding.ASCII.GetBytes(str);
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            return bytes;
         }
+
     }
 }
