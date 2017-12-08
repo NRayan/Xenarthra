@@ -50,7 +50,7 @@ namespace Xenarthra.Views
             if (imgAparicao.Source != null)
             {
                 imgAparicao.Source = null;
-                Navigation.PushAsync(new Aparicao_Envio(imgEnvio,usu_ID));
+                Navigation.PushAsync(new Aparicao_Envio(imgEnvio,img,usu_ID));
             }
             else
                 DisplayAlert("Atenção", "Insira uma imagem para Envio", "Ok");

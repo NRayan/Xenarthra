@@ -81,8 +81,7 @@ namespace Xenarthra.Views
                 {
                     PhotoSize = PhotoSize.Medium,
                     AllowCropping = true,
-                    SaveToAlbum = true,
-                    Name = "capXen.jpg"
+                    SaveToAlbum = true
                 });
 
                 if (file == null)
@@ -96,6 +95,7 @@ namespace Xenarthra.Views
 
             catch (Exception ex)
             {
+                await this.DisplayAlert("Erro",ex.ToString(), "ok");
                 await this.DisplayAlert("Erro", "Problema ao Executar ação", "ok");
             }
         }

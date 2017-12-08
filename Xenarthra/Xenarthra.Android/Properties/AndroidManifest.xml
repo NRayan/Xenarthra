@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xenarthra.wwm" android:installLocation="auto" android:versionCode="1" android:versionName="1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xenarthra.wwm" android:installLocation="preferExternal" android:versionCode="1" android:versionName="1">
 	<uses-sdk android:minSdkVersion="23" />
 	<application android:label="Xenarthra" android:icon="@drawable/iconx">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDvLkKUxkq9ae1NGBAZ4-pF011BUC3njS4" />

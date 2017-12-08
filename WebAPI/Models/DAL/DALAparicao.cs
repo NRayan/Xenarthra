@@ -149,7 +149,7 @@ namespace WebAPI.Models
                         _apar.apa_Comentario = dr["apa_Comentario"].ToString();
                         _apar.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
                         _apar.apa_Data = Convert.ToDateTime(dr["apa_Data"]);
-                        _apar.apa_IMG = ByteArrayToString((byte[])dr["ani_IMG"]);
+                        _apar.apa_IMG = ByteArrayToString((byte[])dr["apa_IMG"]);
                         _apar.usu_IMG = ByteArrayToString((byte[])dr["usu_IMG"]);
                         _apar.usu_Nome= dr["usu_Nome"].ToString();
                         _apar.ani_Nome = dr["ani_Nome"].ToString();
@@ -179,7 +179,7 @@ namespace WebAPI.Models
             {
                 conn.Open();
 
-                string sql = "insert into aparicao Values(@comentario,null,@Lati,@Longi,@Data,@img,2,@id_usu,@id_ani)";
+                string sql = "insert into aparicao Values(@comentario,null,@Lati,@Longi,@Data,@img,2,@id_usu,2)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@comentario", apar.apa_Comentario);
                 cmd.Parameters.AddWithValue("@Lati", apar.apa_Latitude);
@@ -187,7 +187,6 @@ namespace WebAPI.Models
                 cmd.Parameters.AddWithValue("@Data", apar.apa_Data.ToString());
                 cmd.Parameters.AddWithValue("@img",StringToByteArray( apar.apa_IMG));
                 cmd.Parameters.AddWithValue("@id_usu", apar.apa_ID_USU);
-                cmd.Parameters.AddWithValue("@id_ani", apar.apa_ID_ANI);
 
                 cmd.ExecuteNonQuery();
 
