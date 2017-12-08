@@ -7,12 +7,13 @@ using System.Web;
 using System.Data.SqlClient;
 using Xenarthra.Models.extra;
 using WebAPI.Models.extra;
+using System.Text;
 
 namespace WebAPI.Models
 {
     public class DALAparicao
     {
-        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServer"].ConnectionString;      
+        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServerLocal"].ConnectionString;      
 
         public List<Aparicao_Extended> ListarAparicoesPorTipoAni(int tipo)
         {
@@ -148,11 +149,10 @@ namespace WebAPI.Models
                         _apar.apa_Comentario = dr["apa_Comentario"].ToString();
                         _apar.apa_ComentarioADM = dr["apa_ComentarioADM"].ToString();
                         _apar.apa_Data = Convert.ToDateTime(dr["apa_Data"]);
-                        //_apar.ani_IMG = (byte[])dr["ani_IMG"];
-                        //_apar.usu_IMG = (Byte[])dr["ani_IMG"];
+                        _apar.apa_IMG = ByteArrayToString((byte[])dr["ani_IMG"]);
+                        _apar.usu_IMG = ByteArrayToString((byte[])dr["usu_IMG"]);
                         _apar.usu_Nome= dr["usu_Nome"].ToString();
                         _apar.ani_Nome = dr["ani_Nome"].ToString();
-
                     }
                 }
             }
@@ -179,13 +179,13 @@ namespace WebAPI.Models
             {
                 conn.Open();
 
-                string sql = "insert into aparicao Values(@comentario,null,@Lati,@Longi,@Data,null,1,@id_usu,@id_ani)";
+                string sql = "insert into aparicao Values(@comentario,null,@Lati,@Longi,@Data,@img,2,@id_usu,@id_ani)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@comentario", apar.apa_Comentario);
                 cmd.Parameters.AddWithValue("@Lati", apar.apa_Latitude);
                 cmd.Parameters.AddWithValue("@Longi", apar.apa_Longitude);
                 cmd.Parameters.AddWithValue("@Data", apar.apa_Data.ToString());
-                //cmd.Parameters.AddWithValue("@img", apar.apa_IMG);
+                cmd.Parameters.AddWithValue("@img",StringToByteArray( apar.apa_IMG));
                 cmd.Parameters.AddWithValue("@id_usu", apar.apa_ID_USU);
                 cmd.Parameters.AddWithValue("@id_ani", apar.apa_ID_ANI);
 
@@ -204,6 +204,22 @@ namespace WebAPI.Models
             }
         }
 
+        public static string ByteArrayToString(byte[] ba) //ByteArray para String Hexadecimal
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("{0:x2}", b);
+            return hex.ToString();
+        }
+
+        public static byte[] StringToByteArray(String hex)//String Hexadecimal para ByteArray 
+        {
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            return bytes;
+        }
 
 
     }

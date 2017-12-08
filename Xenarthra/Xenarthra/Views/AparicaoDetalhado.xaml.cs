@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,6 @@ namespace Xenarthra.Views
 	public partial class AparicaoDetalhado : TabbedPage
 	{
         AparicaoService apaService = new AparicaoService();
-        public AparicaoDetalhado()
-        {
-            InitializeComponent();
-        }
 
         public AparicaoDetalhado(int apa_ID)
         {
@@ -34,6 +31,20 @@ namespace Xenarthra.Views
             lblComentarioADM.Text = _apar.apa_ComentarioADM;
             lblData.Text = _apar.apa_Data.ToShortDateString();
             lblNomeUsuario.Text = _apar.usu_Nome;
+
+
+            imgUsuario.Source = ImageSource.FromStream(() => new MemoryStream(StringToByteArray(_apar.usu_IMG)));
+            imgAparicao.Source = ImageSource.FromStream(() => new MemoryStream(StringToByteArray(_apar.apa_IMG)));
         }
+
+        public static byte[] StringToByteArray(String hex)//String Hexadecimal para ByteArray 
+        {
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            return bytes;
+        }
+
     }
 }

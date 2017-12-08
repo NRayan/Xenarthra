@@ -17,7 +17,7 @@ namespace Xenarthra.DataService
         {
             try
             {
-                string url = "http://xenarthra.somee.com/api/APA3?tipo="+tipo.ToString();
+                string url = "http://192.168.0.8:65060/api/APA3?tipo=" + tipo.ToString();
                 var resposta = await client.GetStringAsync(url);
                 var endr = JsonConvert.DeserializeObject<List<Pino_Mapa>>(resposta);
               
@@ -50,7 +50,7 @@ namespace Xenarthra.DataService
         {
             try
             {
-                string url = "http://xenarthra.somee.com/api/APA4/";
+                string url = "http://192.168.0.8:65060/api/APA4/";
                 var uri = new Uri(string.Format(url, apa.apa_ID));
                 var data = JsonConvert.SerializeObject(apa);
                 var content = new StringContent(data, Encoding.UTF8, "application/json");
