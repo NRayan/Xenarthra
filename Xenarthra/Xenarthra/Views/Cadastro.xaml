@@ -24,10 +24,10 @@
             </Image>
         </StackLayout>
         
-        <Entry Placeholder="Nome Completo"/>
-        <Entry Placeholder="Email" Keyboard="Email"/>
-        <Entry Placeholder="Senha" IsPassword="True"/>
-        <Button Text="Confirmar" TextColor="White" BackgroundColor="#215773" BorderRadius="5" Margin="10,20,10,0"/>
+        <Entry x:Name="txtNome" Placeholder="Nome Completo"/>
+        <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email"/>
+        <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True"/>
+        <Button x:Name="btnConfirmar" Clicked="btnConfirmar_Clicked" Text="Confirmar" TextColor="White" BackgroundColor="#215773" BorderRadius="5" Margin="10,20,10,0" />
         
         <Picker IsVisible="False" x:Name="pickerImagem" Focused="pickerImagem_Focused" Unfocused="pickerImagem_Unfocused">
             <Picker.Items>

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xenarthra.DataService;
+using Xenarthra.Models;
 
 namespace Xenarthra.Views
 {
@@ -128,6 +130,33 @@ namespace Xenarthra.Views
             }
         }
 
-       
+        private void btnConfirmar_Clicked(object sender, EventArgs e)
+        {
+            Usuario usu = new Usuario();           
+
+            usu.usu_Nome = txtNome.Text;
+            usu.usu_Email = txtEmail.Text;
+            usu.usu_Senha = txtSenha.Text;
+            usu.usu_ADM = false;
+            // usu.usu_IMG = ;
+
+            CadastrarUsuario(usu);
+        }
+
+        private async void CadastrarUsuario(Usuario usu)
+        {
+            UsuarioService usuService = new UsuarioService();
+
+            if (await usuService.CadastrarUsuario (usu) == true)
+            {
+                await DisplayAlert(" ", "Usuário Cadastrado com Sucesso", "Ok");
+                txtEmail.Text = string.Empty;
+                txtNome.Text = string.Empty;
+                txtSenha.Text = string.Empty;
+            }                
+            else
+                await DisplayAlert("Erro", "Erro ao cadastrar Usuário", "Ok");
+        }
+
     }
 }

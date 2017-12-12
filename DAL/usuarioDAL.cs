@@ -8,7 +8,7 @@ using Models;
 
 namespace DAL
 {
-    class usuarioDAL
+    public class usuarioDAL
     {
         string connectionString = ConfigurationManager.ConnectionStrings["BDXenarthraConnectionString"].ConnectionString;
 
@@ -33,7 +33,7 @@ namespace DAL
             {
                 conn.Open();
 
-                string sql = "SELECT * FROM USUARIO WHERE usu_USUARIO = @Usuario AND usu_SENHA = @senha";
+                string sql = "SELECT * FROM USUARIO WHERE usu_Nome = @Usuario AND usu_Senha = @senha";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Usuario", Usuario);
                 cmd.Parameters.AddWithValue("@senha", senha);
