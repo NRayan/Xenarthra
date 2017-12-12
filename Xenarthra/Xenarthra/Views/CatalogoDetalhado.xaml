@@ -10,7 +10,7 @@
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal" Margin="15,30,15,10">
-                <ff:CachedImage VerticalOptions="Center" Margin="0,15,0,25" x:Name="imgAnimal" Source="teste.jpg" HeightRequest="150" WidthRequest="150" >
+                <ff:CachedImage VerticalOptions="Center" Margin="0,15,0,25" x:Name="imgAnimal" HeightRequest="150" WidthRequest="150" >
                     <ff:CachedImage.Transformations>
                         <ffTransformation:RoundedTransformation Radius="300" CropHeightRatio="300" CropWidthRatio="300"/>
                     </ff:CachedImage.Transformations>

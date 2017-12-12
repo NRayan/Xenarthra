@@ -179,7 +179,7 @@ namespace WebAPI.Models
             {
                 conn.Open();
 
-                string sql = "insert into aparicao Values(@comentario,null,@Lati,@Longi,@Data,@img,2,@id_usu,2)";
+                string sql = "insert into aparicao Values(@comentario,null,@Lati,@Longi,@Data,@img,1,@id_usu,1)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@comentario", apar.apa_Comentario);
                 cmd.Parameters.AddWithValue("@Lati", apar.apa_Latitude);

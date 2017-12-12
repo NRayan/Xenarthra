@@ -41,19 +41,19 @@ namespace Xenarthra.Views
         private void lvBP_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var animal = (Animal)e.Item;
-            Navigation.PushAsync(new CatalogoDetalhado(animal));
+            Navigation.PushAsync(new CatalogoDetalhado(animal.ani_ID));
         }
 
         private void lvTT_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var animal = (Animal)e.Item;
-            Navigation.PushAsync(new CatalogoDetalhado(animal));
+            Navigation.PushAsync(new CatalogoDetalhado(animal.ani_ID));
         }
 
         private void lvTD_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var animal = (Animal)e.Item;
-            Navigation.PushAsync(new CatalogoDetalhado(animal));
+            Navigation.PushAsync(new CatalogoDetalhado(animal.ani_ID));
         }
     }
 }

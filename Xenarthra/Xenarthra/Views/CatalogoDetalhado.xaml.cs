@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xenarthra.DataService;
 using Xenarthra.Models;
 
 namespace Xenarthra.Views
@@ -14,9 +15,17 @@ namespace Xenarthra.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CatalogoDetalhado : ContentPage
 	{
-		public CatalogoDetalhado (Animal ani)
+		public CatalogoDetalhado (int ani_id)
 		{
-			InitializeComponent ();
+            InitializeComponent();
+            BuscarAni(ani_id);			
+        }
+
+        private async void BuscarAni(int id)
+        {
+            AnimalService _AniService = new AnimalService();
+            Animal ani = await _AniService.BuscarAnimal(id);
+
             lblNomeAnimal.Text = ani.ani_Nome;
             lblNomeCientifico.Text = ani.ani_NomeCient;
             lblDescricaoAnimal.Text = ani.ani_Descricao;

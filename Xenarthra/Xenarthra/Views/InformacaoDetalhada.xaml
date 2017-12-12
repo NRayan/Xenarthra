@@ -6,7 +6,7 @@
              BackgroundColor="#064406">>
 
     <ScrollView>
-    <StackLayout VerticalOptions="FillAndExpand" Margin="10,10">
+    <StackLayout VerticalOptions="FillAndExpand" Margin="10,20">
         <Label x:Name="lblInformacao" FontSize="16" TextColor="#C9C9C9"/>
     </StackLayout>
     </ScrollView>

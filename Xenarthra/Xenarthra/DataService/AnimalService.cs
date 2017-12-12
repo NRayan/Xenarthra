@@ -11,12 +11,13 @@ namespace Xenarthra.DataService
     public class AnimalService
     {
         HttpClient client = new HttpClient();
+        string Host = "http://192.168.0.8:65060";
 
         public async Task<List<Animal>> ListarAnimaisPorTipo(int tipo)
         {
             try
             {
-                string url = "http://xenarthra.somee.com/api/ANI1?tipo=" + tipo.ToString();
+                string url = Host + "/api/ANI1?tipo=" + tipo.ToString();
                 var resposta = await client.GetStringAsync(url);
                 var endr = JsonConvert.DeserializeObject<List<Animal>>(resposta);
 
@@ -32,7 +33,7 @@ namespace Xenarthra.DataService
         {
             try
             {
-                string url = "http://xenarthra.somee.com/api/ANI2?id=" + id.ToString();
+                string url = Host + "/api/ANI2?id=" + id.ToString();
                 var resposta = await client.GetStringAsync(url);
                 var endr = JsonConvert.DeserializeObject<Animal>(resposta);
 

@@ -24,7 +24,7 @@ namespace Xenarthra.Views
 
         private void txCellXenarthras_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new InformacaoDetalhada(1));
+            Navigation.PushAsync(new InformacaoDetalhada(2));
         }
     }
 }

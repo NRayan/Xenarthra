@@ -15,11 +15,23 @@ namespace Xenarthra.Views
 		public InformacaoDetalhada (int opcao)
 		{
 			InitializeComponent ();
-            lblInformacao.Text = sobreAplicativo();
+
+            if (opcao == 1)
+                lblInformacao.Text = sobreAplicativo();
+            else
+                lblInformacao.Text = sobreXenarthras();
 
 		}
 
         public string sobreAplicativo()
+        {
+            return @"Este trabalho tem por objetivo o desenvolvimento de uma aplicação colaborativa e multiplataforma que seja capaz de ajudar biólogos, engenheiros ambientais e florestais,
+                     estudantes, pesquisadores e todos aqueles interessados nos animais que compõem a classe  Xenarthras. 
+                     Esta aplicação visa catalogar estas espécies por região e assim ajudar na tarefa de proteção destes animais e do seu habitat.";
+
+        }
+
+         public string sobreXenarthras()
         {
             return @"Os Xenarthras ou Edentatos, são mamíferos placentários originários do continente americano há aproximadamente 60 milhões de anos. Estão distribuídos geograficamente numa região que vai desde o centro sul da América do Norte, passando pela América Central até o sul da América do Sul.
             Seu nome provém da estrutura das vértebras que são muito diferentes dos demais mamíferos. Suas vértebras dorso - lombares apresentam, além das articulações comuns, uma articulação acessória(xenartria). Também possuem dentes molares pouco desenvolvidos, o que lhes deu o nome popular de desdentados, também possuem garras nos dedos e geralmente os seus movimentos são lentos.
