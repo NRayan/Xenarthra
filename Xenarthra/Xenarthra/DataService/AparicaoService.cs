@@ -12,12 +12,13 @@ namespace Xenarthra.DataService
     public class AparicaoService
     {
         HttpClient client = new HttpClient();
+        string Host = "http://192.168.0.8:65060";
 
         public async Task<List<Pino_Mapa>> BuscarPinos(int tipo)
         {
             try
             {
-                string url = "http://192.168.0.8:65060/api/APA3?tipo=" + tipo.ToString();
+                string url = Host + "/api/APA3?tipo=" + tipo.ToString();
                 var resposta = await client.GetStringAsync(url);
                 var endr = JsonConvert.DeserializeObject<List<Pino_Mapa>>(resposta);
               
@@ -34,7 +35,7 @@ namespace Xenarthra.DataService
         {
             try
             {
-                string url = "http://192.168.0.8:65060/api/APA2?id=" + id.ToString();
+                string url = Host + "/api/APA2?id=" + id.ToString();
                 var resposta = await client.GetStringAsync(url);
                 var endr = JsonConvert.DeserializeObject<Aparicao_Extended>(resposta);
 
@@ -50,7 +51,7 @@ namespace Xenarthra.DataService
         {
             try
             {
-                string url = "http://192.168.0.8:65060/api/APA4/";
+                string url = Host + "/api/APA4/";
                 var uri = new Uri(string.Format(url, apa.apa_ID));
                 var data = JsonConvert.SerializeObject(apa);
                 var content = new StringContent(data, Encoding.UTF8, "application/json");

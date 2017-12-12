@@ -11,12 +11,13 @@ namespace Xenarthra.DataService
     public class UsuarioService
     {
         HttpClient client = new HttpClient();
+        string Host = "http://192.168.0.8:65060";
 
         public async Task<bool> ValidarUsuario(string email, string senha)
         {
             try
             {
-                string url = "http://192.168.0.8:65060/api/Usu2?email=" + email + "&Senha=" + senha;
+                string url = Host + "/api/Usu2?email=" + email + "&Senha=" + senha;
                 var resposta = await client.GetStringAsync(url);
                 var endr = JsonConvert.DeserializeObject<bool>(resposta);
                 return endr;
@@ -31,7 +32,7 @@ namespace Xenarthra.DataService
         {
             try
             {
-                string url = "http://192.168.0.8:65060/api/Usu1/";
+                string url = Host + "/api/Usu1/";
                 var uri = new Uri(string.Format(url, usu.usu_ID));
                 var data = JsonConvert.SerializeObject(usu);
                 var content = new StringContent(data, Encoding.UTF8, "application/json");
@@ -57,7 +58,7 @@ namespace Xenarthra.DataService
         {
             try
             {
-                string url = "http://192.168.0.8:65060/api/USU3?email=" + email.ToString();
+                string url = Host + "/api/USU3?email=" + email.ToString();
                 var resposta = await client.GetStringAsync(url);
                 var endr = JsonConvert.DeserializeObject<Usuario>(resposta);
 

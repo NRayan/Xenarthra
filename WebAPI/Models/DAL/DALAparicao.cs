@@ -203,6 +203,39 @@ namespace WebAPI.Models
             }
         }
 
+        public void AtualizarAparicao(int apa_id, string apa_comentarioadm, int apa_status, int apa_id_ani)
+        {
+            SqlConnection conn = new SqlConnection(connectionStr);
+
+            try
+            {
+                conn.Open();
+
+                string sql = @"UPDATE APARICAO
+                               SET apa_ComentarioAdm = @apa_comentarioadm, apa_status = @apa_status, apa_ID_ANI = @apa_id_ani
+                               WHERE apa_ID = @apa_id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@apa_id", apa_id);
+                cmd.Parameters.AddWithValue("@apa_comentarioadm", apa_comentarioadm);
+                cmd.Parameters.AddWithValue("@apa_status", apa_status);
+                cmd.Parameters.AddWithValue("@apa_id_ani", apa_id_ani);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
         public static string ByteArrayToString(byte[] ba) //ByteArray para String Hexadecimal
         {
             StringBuilder hex = new StringBuilder(ba.Length * 2);

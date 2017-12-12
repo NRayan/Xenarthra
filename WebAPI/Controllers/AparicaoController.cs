@@ -35,8 +35,6 @@ namespace WebAPI.Controllers
             return _DALAparicao.ListarPinosPorTipoAni(tipo);
         }
 
-
-
         [Route("api/APA4")]
         [HttpPost]
         public void CadastrarAparicao([FromBody]Aparicao apar)
@@ -44,6 +42,13 @@ namespace WebAPI.Controllers
             _DALAparicao.CadastrarAparicao(apar);
         }
 
-       
+        [Route("api/APA5")]
+        [HttpPut]
+        public void AtualizarAparicao(int apa_id,string apa_comentarioadm,int apa_status,int apa_id_ani)
+        {
+            _DALAparicao.AtualizarAparicao(apa_id, apa_comentarioadm, apa_status, apa_id_ani);
+        }
+
+
     }
 }

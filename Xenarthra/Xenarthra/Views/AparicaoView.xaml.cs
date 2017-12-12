@@ -42,7 +42,7 @@ namespace Xenarthra.Views
 
         private void btnCapturar_Clicked(object sender, EventArgs e)
         {
-            pickerImagem.Focus();
+            capturarGaleria();
         }
 
         private void btnNext_Clicked(object sender, EventArgs e)
@@ -54,60 +54,7 @@ namespace Xenarthra.Views
             }
             else
                 DisplayAlert("Atenção", "Insira uma imagem para Envio", "Ok");
-        }
-        private void pickerImagem_Focused(object sender, FocusEventArgs e)
-        {
-            pickerImagem.SelectedIndex = -1;
-        }
-
-        private void pickerImagem_Unfocused(object sender, FocusEventArgs e)
-        {
-            if (pickerImagem.SelectedIndex == 0)
-            {
-                capturarCamera();
-            }
-            else if (pickerImagem.SelectedIndex == 1)
-            {
-                capturarGaleria();
-            }
-        }
-
-        private async void capturarCamera()
-        {
-            try
-            {
-                await CrossMedia.Current.Initialize();
-
-                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-                {
-                    await DisplayAlert("Sem Camera", "Recurso indisponível", "Ok");
-                    return;
-                }
-
-                var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
-                {
-                    PhotoSize = PhotoSize.Medium,
-                    AllowCropping = true,
-                    SaveToAlbum = true,
-                    Name = "capXen.jpg",
-                    DefaultCamera = CameraDevice.Front,
-                });
-
-                if (file == null)
-                {
-                    return;
-                }
-
-                img = ReadFully(file.GetStream());
-                imgAparicao.Source = ImageSource.FromStream(() => file.GetStream());
-                imgEnvio = ImageSource.FromStream(() => file.GetStream());
-            }
-
-            catch (Exception ex)
-            {
-                await this.DisplayAlert("Erro", "Problema ao Executar ação", "ok");
-            }
-        }
+        }      
 
         private async void capturarGaleria()
         {

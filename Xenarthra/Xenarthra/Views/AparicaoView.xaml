@@ -23,17 +23,13 @@
                 <ff:CachedImage.Transformations>
                     <ffTransformation:RoundedTransformation Radius="10" CropHeightRatio="512" CropWidthRatio="512"/>
                 </ff:CachedImage.Transformations>
-            </ff:CachedImage>            
+            </ff:CachedImage>
 
-            <controls:ImageButton x:Name="btnCapturar" Clicked="btnCapturar_Clicked" Text="  Capturar" BackgroundColor="#109410" TextColor="#ffffff" FontSize="16" Source="imgbtn.png" Orientation="ImageToLeft"  ImageHeightRequest="74" ImageWidthRequest="74" WidthRequest="145" BorderWidth="1" BorderColor="#095109" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,10" />
-            
-
-            <Picker IsVisible="False" x:Name="pickerImagem" Focused="pickerImagem_Focused" Unfocused="pickerImagem_Unfocused">
-                <Picker.Items>
-                    <x:String>Camera</x:String>
-                    <x:String>Galeria</x:String>
-                </Picker.Items>
-            </Picker>
+            <Image Source="plus.png" WidthRequest="64" HeightRequest="64" Margin="0,0,0,20" VerticalOptions="End">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="btnImagem" Tapped="btnCapturar_Clicked"/>
+                </Image.GestureRecognizers>
+            </Image>            
 
         </Grid>        
         
