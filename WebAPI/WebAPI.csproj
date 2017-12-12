@@ -190,6 +190,8 @@
     <Compile Include="Models\DAL\DALAparicao.cs" />
     <Compile Include="Models\DAL\DALUsuario.cs" />
     <Compile Include="Models\DAL\DALAnimal.cs" />
+    <Compile Include="Models\extra\Aparicao_Extended.cs" />
+    <Compile Include="Models\extra\Pino_Mapa.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

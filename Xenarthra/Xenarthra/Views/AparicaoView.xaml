@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xenarthra.Views.AparicaoView"
+             Title="Enviar Imagem"
+             BackgroundColor="#085808"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:ff ="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg ="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnNext" Icon="next.png" Order="Primary" Clicked="btnNext_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        
+        <Grid VerticalOptions="FillAndExpand" x:Name="grid1">
+            
+            <Image VerticalOptions="Center" Margin="0,0,0,55" Source="emptyimg.png" HeightRequest="128" WidthRequest="128"/>
+            
+            <ff:CachedImage VerticalOptions="Center" Margin="0,0,0,55" x:Name="imgAparicao" HeightRequest="300" WidthRequest="300">
+                <ff:CachedImage.Transformations>
+                    <ffTransformation:RoundedTransformation Radius="10" CropHeightRatio="512" CropWidthRatio="512"/>
+                </ff:CachedImage.Transformations>
+            </ff:CachedImage>
+
+            <Image Source="plus.png" WidthRequest="64" HeightRequest="64" Margin="0,0,0,20" VerticalOptions="End">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="btnImagem" Tapped="btnCapturar_Clicked"/>
+                </Image.GestureRecognizers>
+            </Image>            
+
+        </Grid>        
+        
+    </StackLayout>
+
+
+</ContentPage>

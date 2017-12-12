@@ -29,9 +29,9 @@ namespace WebAPI.Controllers
 
         [Route("api/Usu3")]
         [HttpGet]
-        public Usuario BuscarUsuarioporNome(string nome)
+        public Usuario BuscarUsuarioporEmail(string email)
         {
-            return _DALUsuario.BuscarUsuarioporNome(nome);
+            return _DALUsuario.BuscarUsuarioporEmail(email);
         }
 
 

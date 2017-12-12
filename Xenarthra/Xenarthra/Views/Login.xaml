@@ -8,8 +8,8 @@
     
     <StackLayout VerticalOptions="Center" Margin="30,0">
         <Image Source="iconx.png" HorizontalOptions="Center" WidthRequest="256" HeightRequest="256"/>
-        <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email" Text="Norton"/>
-        <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True" Text="4567"/>
+        <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email" Text="norton"/>
+        <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True" Text="norton"/>
         <Button x:Name="btnEntrar" BorderRadius="2" Clicked="btnEntrar_Clicked" Text="Entrar" BackgroundColor="#1C551C" TextColor="White"  Margin="0,10"/>
         <Button x:Name="btnRegistrar" BorderRadius="2" Clicked="btnRegistrar_Clicked"  Text="Cadastrar" BackgroundColor="#215773" TextColor="White"/>
     </StackLayout>

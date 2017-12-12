@@ -17,9 +17,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataService\UsuarioService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Animal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Aparicao.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\extra\Aparicao_Extended.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\extra\Pino_Mapa.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Usuario.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Aparicao.xaml.cs">
-      <DependentUpon>Aparicao.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AparicaoView.xaml.cs">
+      <DependentUpon>AparicaoView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\AparicaoDetalhado.xaml.cs">
@@ -46,6 +48,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\Classes\CustomMap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Informacao.xaml.cs">
       <DependentUpon>Informacao.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\InformacaoDetalhada.xaml.cs">
+      <DependentUpon>InformacaoDetalhada.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Login.xaml.cs">
@@ -108,7 +114,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Views\Classes\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Aparicao.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AparicaoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -133,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AparicaoDetalhado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\InformacaoDetalhada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

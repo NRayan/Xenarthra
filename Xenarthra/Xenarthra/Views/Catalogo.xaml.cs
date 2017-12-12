@@ -6,52 +6,54 @@ using System.Threading.Tasks;
 using Xenarthra.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xenarthra.DataService;
 
 namespace Xenarthra.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Catalogo : TabbedPage
     {
+        List<Animal> _lista1 = new List<Animal>();
+        List<Animal> _lista2 = new List<Animal>();
+        List<Animal> _lista3 = new List<Animal>();
+
+        AnimalService _aniService = new AnimalService();
+
         public Catalogo ()
         {
             InitializeComponent();
-            this.BindingContext = this;
+            CarregarListas();           
         }
 
-        Animal pxnomeanimais = new Animal();
-        public List<Animal> pxBichosPreguica
+        private async void CarregarListas()
         {
-            get
-            {
-                return pxnomeanimais.ListarNomeBichosPreguica().OrderBy(x => x.ani_Nome).ToList();
-            }
-        }
+            _lista1 = await _aniService.ListarAnimaisPorTipo(1);
+            lvBP.ItemsSource = _lista1;
 
-        public List<Animal> pxTatus
-        {
-            get
-            {
-                return pxnomeanimais.ListarNomeTatus().OrderBy(x => x.ani_Nome).ToList();
-            }
-        }
+            _lista2 = await _aniService.ListarAnimaisPorTipo(2);
+            lvTT.ItemsSource = _lista2;
 
-        public List<Animal> pxTamanduas
-        {
-            get
-            {
-                return pxnomeanimais.ListarNomeTamanduas().OrderBy(x => x.ani_Nome).ToList();
-            }
-        }
-
-        private void lvAnimais_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
+            _lista3 = await _aniService.ListarAnimaisPorTipo(3);
+            lvTD.ItemsSource = _lista3;
 
         }
 
         private void lvBP_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var animal = (Animal)e.Item;
-            Navigation.PushAsync(new CatalogoDetalhado());
+            Navigation.PushAsync(new CatalogoDetalhado(animal));
+        }
+
+        private void lvTT_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var animal = (Animal)e.Item;
+            Navigation.PushAsync(new CatalogoDetalhado(animal));
+        }
+
+        private void lvTD_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var animal = (Animal)e.Item;
+            Navigation.PushAsync(new CatalogoDetalhado(animal));
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xenarthra.Views.InformacaoDetalhada"
+             Title="Informação"
+             BackgroundColor="#064406">>
+
+    <ScrollView>
+    <StackLayout VerticalOptions="FillAndExpand" Margin="10,10">
+        <Label x:Name="lblInformacao" FontSize="16" TextColor="#C9C9C9"/>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>
