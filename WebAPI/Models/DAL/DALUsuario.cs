@@ -8,7 +8,7 @@ namespace WebAPI.Models
 {
     public class DALUsuario
     {
-        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServerLocal"].ConnectionString;
+        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServer"].ConnectionString;
 
         public void CadastrarUsuario(Usuario _usu)
         {

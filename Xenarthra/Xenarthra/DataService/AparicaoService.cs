@@ -12,7 +12,7 @@ namespace Xenarthra.DataService
     public class AparicaoService
     {
         HttpClient client = new HttpClient();
-        string Host = "http://192.168.0.8:65060";
+        string Host = "http://xenarthra.somee.com";
 
         public async Task<List<Pino_Mapa>> BuscarPinos(int tipo)
         {

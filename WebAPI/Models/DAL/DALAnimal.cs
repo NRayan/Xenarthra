@@ -10,7 +10,7 @@ namespace WebAPI.Models
     public class DALAnimal
     {
 
-        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServerLocal"].ConnectionString;
+        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServer"].ConnectionString;
 
 
         public List<Animal> ListarAnimais()

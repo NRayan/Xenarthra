@@ -11,7 +11,7 @@ namespace Xenarthra.DataService
     public class UsuarioService
     {
         HttpClient client = new HttpClient();
-        string Host = "http://192.168.0.8:65060";
+        string Host = "http://xenarthra.somee.com";
 
         public async Task<bool> ValidarUsuario(string email, string senha)
         {

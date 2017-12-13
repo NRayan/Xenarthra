@@ -13,7 +13,7 @@ namespace WebAPI.Models
 {
     public class DALAparicao
     {
-        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServerLocal"].ConnectionString;      
+        string connectionStr = ConfigurationManager.ConnectionStrings["conexaoSQLServer"].ConnectionString;      
 
         public List<Aparicao_Extended> ListarAparicoesPorTipoAni(int tipo)
         {
