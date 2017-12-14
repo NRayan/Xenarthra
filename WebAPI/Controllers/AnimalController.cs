@@ -25,18 +25,10 @@ namespace WebAPI.Models
 
         [Route("api/ANI2")]
         [HttpGet]
-        public Animal BuscarAnimal(int id)
+        public Animal GetAnimal(int cod)
         {
-            return _DALAnimal.BuscarAnimal(id);
+            return _DALAnimal.BuscarAnimal(cod);
         }
-
-        [Route("api/ANI3")]
-        [HttpPost]
-        public void CadastrarAnimal([FromBody]Animal _ani)
-        {
-            _DALAnimal.CadastrarAnimal(_ani);
-        }
-
 
 
 
