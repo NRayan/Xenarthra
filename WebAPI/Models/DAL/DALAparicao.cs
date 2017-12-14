@@ -48,11 +48,11 @@ namespace WebAPI.Models
                         _apar.apa_status = Convert.ToInt32(dr["apa_status"]);
                         _apar.apa_Latitude = Convert.ToDecimal(dr["apa_Latitude"]);
                         _apar.apa_Longitude = Convert.ToDecimal(dr["apa_Longitude"]);
-                        //_apar.ani_IMG = (byte[])dr["ani_IMG"];
+                        _apar.ani_IMG = ByteArrayToString((byte[])dr["ani_IMG"]);
                         _apar.apa_ID_USU = Convert.ToInt32(dr["apa_ID_USU"]);
                         _apar.apa_ID_ANI = Convert.ToInt32(dr["apa_ID_ANI"]);
                         _apar.usu_Nome = dr["usu_Nome"].ToString();
-                        //_apar.usu_IMG= (byte[])dr["usu_IMG"];
+                        _apar.usu_IMG= ByteArrayToString((byte[])dr["usu_IMG"]);
                         _apar.ani_Nome = dr["ani_Nome"].ToString();
                         _aparicoes.Add(_apar);
                     }

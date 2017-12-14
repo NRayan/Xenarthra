@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace WebAPI.Models
 {
@@ -34,7 +35,7 @@ namespace WebAPI.Models
                         _ani.ani_ID = Convert.ToInt32(dr["ani_ID"]);
                         _ani.ani_NomeCient = dr["ani_NomeCient"].ToString();
                         _ani.ani_Nome = dr["ani_Nome"].ToString();
-                        //_ani.ani_IMG = (byte[])dr["ani_IMG"];
+                        _ani.ani_IMG = ByteArrayToString((byte[])dr["ani_IMG"]);
                         _ani.ani_Descricao = dr["ani_Descricao"].ToString();
                         _ani.ani_Tipo = Convert.ToInt32(dr["ani_Tipo"]);
                         _animais.Add(_ani);
@@ -78,7 +79,7 @@ namespace WebAPI.Models
                         _ani.ani_ID = Convert.ToInt32(dr["ani_ID"]);
                         _ani.ani_NomeCient = dr["ani_NomeCient"].ToString();
                         _ani.ani_Nome = dr["ani_Nome"].ToString();
-                        //_ani.ani_IMG = (byte[])dr["ani_IMG"];
+                        _ani.ani_IMG = ByteArrayToString((byte[])dr["ani_IMG"]);
                         _ani.ani_Descricao = dr["ani_Descricao"].ToString();
                         _ani.ani_Tipo = Convert.ToInt32(dr["ani_Tipo"]);
                         _animais.Add(_ani);
@@ -116,11 +117,11 @@ namespace WebAPI.Models
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.HasRows && dr.Read())
-                {                    
+                {
                     _ani.ani_ID = Convert.ToInt32(dr["ani_ID"]);
                     _ani.ani_NomeCient = dr["ani_NomeCient"].ToString();
                     _ani.ani_Nome = dr["ani_Nome"].ToString();
-                    //_ani.ani_IMG = (byte[])dr["ani_IMG"];
+                    _ani.ani_IMG = ByteArrayToString((byte[])dr["ani_IMG"]);
                     _ani.ani_Descricao = dr["ani_Descricao"].ToString();
                     _ani.ani_Tipo = Convert.ToInt32(dr["ani_Tipo"]);
                 }
@@ -137,6 +138,23 @@ namespace WebAPI.Models
                     conn.Close();
             }
             return _ani;
+
+        }
+        public static string ByteArrayToString(byte[] ba) //ByteArray para String Hexadecimal
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("{0:x2}", b);
+            return hex.ToString();
+        }
+
+        public static byte[] StringToByteArray(String hex)//String Hexadecimal para ByteArray 
+        {
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            return bytes;
         }
 
     }

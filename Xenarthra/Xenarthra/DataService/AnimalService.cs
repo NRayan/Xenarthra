@@ -27,9 +27,9 @@ namespace Xenarthra.DataService
             {
                 throw ex;
             }
-        }       
+        }
 
-            public async Task<Animal> BuscarAnimal(int id)
+        public async Task<Animal> BuscarAnimal(int id)
         {
             try
             {

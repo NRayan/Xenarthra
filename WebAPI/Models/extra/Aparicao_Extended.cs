@@ -10,5 +10,6 @@ namespace Xenarthra.Models.extra
         public string usu_Nome { get; set; }
         public string usu_IMG { get; set; }
         public string ani_Nome { get; set; }
+        public string ani_IMG { get; set; }
     }
 }
